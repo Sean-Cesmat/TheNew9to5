@@ -21,6 +21,8 @@ export default {
     --nav-color: white;
     --nav-color-hover: tomato;
     --nav-active: var(--blue);
+
+    --zindex-nav: 990;
 }
 html {
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

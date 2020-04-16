@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+    <div class="nav fixed w-full">
         <div class="container mx-auto px-4 nav-container">
             <div class="flex w-full">
                 <div class="w-1/2">
@@ -19,6 +19,9 @@
 <style lang="scss" scoped>
 .nav {
     background: var(--nav-bg);
+    z-index: 990 !important;
+    top: 0;
+
     &__logo {
         max-width: 100px;
         cursor: pointer;
