@@ -1,0 +1,32 @@
+/// Colors
+
+/// Layout
+
+// $container-max-width: calc(1600px + 10%);
+// $container-min-width: 320px;
+
+$grid-gutter: 16px;
+
+// $container-spacers-uhf: (
+//   default: $grid-gutter,
+//   #{$ms-screen-min-lg}: 5% // additional settings for container left/right padding at different breakpoints,
+// );
+
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: $ms-screen-min-sm,
+//   md: $ms-screen-min-md,
+//   lg: $ms-screen-min-lg,
+//   xl: $ms-screen-min-xl,
+//   xxl: $ms-screen-min-xxl,
+//   xxxl: $ms-screen-min-xxxl
+// );
+
+$zindex-modal: 1000;
+$zindex-nav: 990;
+
+/// Other
+
+$radius: 0.313rem;
+
+/// Typography
