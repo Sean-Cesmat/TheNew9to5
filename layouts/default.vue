@@ -1,7 +1,9 @@
 <template>
-    <div id="app">
+    <div id="app" :class="[$route.name]">
         <Nav />
-        <nuxt />
+        <main>
+            <nuxt />
+        </main>
     </div>
 </template>
 <script>
@@ -10,6 +12,19 @@ import Nav from '~/components/Nav.vue'
 export default {
     components: {
         Nav,
+    },
+    mounted() {
+        window.addEventListener('resize', this.resizeHandler)
+    },
+    methods: {
+        resizeHandler() {
+            console.log('hi')
+            if (window.innerWidth < 1023) {
+                this.$store.dispatch('updateIsMobile', true)
+            } else {
+                this.$store.dispatch('updateIsMobile', false)
+            }
+        },
     },
 }
 </script>
@@ -22,6 +37,7 @@ export default {
     --nav-color-hover: tomato;
     --nav-active: var(--blue);
 
+    --nav-height: 72px;
     --zindex-nav: 990;
 }
 html {
@@ -50,5 +66,23 @@ body {
 
 #app {
     width: 100%;
+}
+main {
+    margin-top: var(--nav-height);
+}
+h1 {
+    font-size: 42px;
+}
+h2 {
+    font-size: 36px;
+}
+h3 {
+    font-size: 28px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 16px;
 }
 </style>

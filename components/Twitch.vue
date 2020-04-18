@@ -3,6 +3,7 @@
         <div class="twitch__inner">
             <img src="~/assets/img/meeting-room-wide.jpg" />
             <iframe src="https://player.twitch.tv/?channel=subsetgetsit" :style="{ position: 'absolute', top: iFrameLocation.y + '%', left: iFrameLocation.x + '%', width: iFrameLocation.w + '%', height: iFrameLocation.h + '%' }" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -32,10 +33,10 @@ export default {
     &__inner {
         position: relative;
         min-width: 3500px;
-        margin-top: -600px;
+        margin-top: -720px;
         margin-left: calc(50% - 10px);
         transform: translateX(-50%);
-        @media screen and (max-width: $tn95-screen-max-lg) {
+        @media screen and (max-width: $lg) {
             min-width: 400vw;
             margin-top: calc(-1 * 100vw + 200px);
         }

@@ -1,0 +1,69 @@
+$sm: 320px !default;
+$md: 480px !default;
+$lg: 640px !default;
+$xl: 1024px !default;
+$xxl: 1366px !default;
+$xxxl: 1920px !default;
+@mixin breakpoint-down($size) {
+    @if $size==xs {
+        @media (max-width: $xs) {
+            @content;
+        }
+    } @else if $size==sm {
+        @media (max-width: $sm) {
+            @content;
+        }
+    } @else if $size==md {
+        @media (max-width: $md) {
+            @content;
+        }
+    } @else if $size==lg {
+        @media (max-width: $lg) {
+            @content;
+        }
+    } @else if $size==xl {
+        @media (max-width: $xl) {
+            @content;
+        }
+    } @else if $size==xxl {
+        @media (max-width: $xxl) {
+            @content;
+        }
+    } @else if $size==xxxl {
+        @media (max-width: $xxxl) {
+            @content;
+        }
+    }
+}
+
+@mixin breakpoint($size) {
+    @if $size==xs {
+        @media (max-width: $xs) {
+            @content;
+        }
+    } @else if $size==sm {
+        @media (min-width: ($xs + 1)) and (max-width: $sm) {
+            @content;
+        }
+    } @else if $size==md {
+        @media (min-width: ($sm + 1)) and (max-width: $md) {
+            @content;
+        }
+    } @else if $size==lg {
+        @media (min-width: ($md + 1)) and (max-width: $lg) {
+            @content;
+        }
+    } @else if $size==xl {
+        @media (min-width: ($lg + 1)) and (max-width: $xl) {
+            @content;
+        }
+    } @else if $size==xxl {
+        @media (min-width: ($xl + 1)) and (max-width: $xxl) {
+            @content;
+        }
+    } @else if $size==xxxl {
+        @media (min-width: ($xxl + 1)) and (max-width: $xxxl) {
+            @content;
+        }
+    }
+}

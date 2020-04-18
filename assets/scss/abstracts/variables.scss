@@ -13,21 +13,21 @@ $grid-gutter: 16px;
 // );
 
 // Minimum widths for each breakpoint.
-$tn95-screen-min-sm: 320px !default;
-$tn95-screen-min-md: 480px !default;
-$tn95-screen-min-lg: 640px !default;
-$tn95-screen-min-xl: 1024px !default;
-$tn95-screen-min-xxl: 1366px !default;
-$tn95-screen-min-xxxl: 1920px !default;
+$sm: 320px !default;
+$md: 480px !default;
+$lg: 640px !default;
+$xl: 1024px !default;
+$xxl: 1366px !default;
+$xxxl: 1920px !default;
 
-// Maximum widths for each breakpoint. These are set to values like 479.99999px to prevent an issue where a browser's
-// width may not be a whole pixel value, creating the potential for multiple media queries to apply simultaneously.
-// See: http://damienclarke.me/code/posts/those-1px-gaps-between-media-queries-can-be-a-problem
-$tn95-screen-max-sm: ($tn95-screen-min-md - 0.00001);
-$tn95-screen-max-md: ($tn95-screen-min-lg - 0.00001);
-$tn95-screen-max-lg: ($tn95-screen-min-xl - 0.00001);
-$tn95-screen-max-xl: ($tn95-screen-min-xxl - 0.00001);
-$tn95-screen-max-xxl: ($tn95-screen-min-xxxl - 0.00001);
+// // Maximum widths for each breakpoint. These are set to values like 479.99999px to prevent an issue where a browser's
+// // width may not be a whole pixel value, creating the potential for multiple media queries to apply simultaneously.
+// // See: http://damienclarke.me/code/posts/those-1px-gaps-between-media-queries-can-be-a-problem
+// $tn95-screen-max-sm: ($tn95-screen-min-md - 0.00001);
+// $tn95-screen-max-md: ($tn95-screen-min-lg - 0.00001);
+// $tn95-screen-max-lg: ($tn95-screen-min-xl - 0.00001);
+// $tn95-screen-max-xl: ($tn95-screen-min-xxl - 0.00001);
+// $tn95-screen-max-xxl: ($tn95-screen-min-xxxl - 0.00001);
 
 $zindex-modal: 1000;
 $zindex-nav: 990;
