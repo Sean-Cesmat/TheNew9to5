@@ -1,12 +1,14 @@
 <template>
     <div class="polaroid" :style="{ transform: `rotate(${tilt}deg)` }">
-        <img src="~/assets/img/thumbtack.jpg" class="polaroid__hanger" />
+        <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
             <img :src="getImage(imageName)" />
         </div>
         <div class="polaroid__main">
             <h2>{{ name }}</h2>
-            <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloud" target="_blank"><img src="~/assets/img/soundcloud.svg"/></a>
+            <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloud" target="_blank">
+                <img src="~/assets/img/soundcloud.svg" />
+            </a>
         </div>
     </div>
 </template>
@@ -64,17 +66,17 @@ export default {
     max-width: 90%;
     &__hanger {
         position: absolute;
-        top: 0px;
-        max-width: 28px;
+        top: -12px;
+        max-width: 60px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-65%);
     }
     &__img {
         width: 100%;
     }
     &__main {
         h2 {
-            font-family: 'marydale', helvetica;
+            font-family: var(--marydale);
         }
     }
     &__soundcloud {
@@ -82,19 +84,5 @@ export default {
             max-width: 48px;
         }
     }
-    // &:before,
-    // &:after {
-    //     content: '';
-    //     z-index: -1;
-    //     width: 100%;
-
-    //     position: absolute;
-    //     bottom: 20px;
-    //     left: 10px;
-    //     top: 80%;
-
-    //     box-shadow: 0 20px 15px #777;
-    //     transform: rotate(-5deg);
-    // }
 }
 </style>

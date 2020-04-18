@@ -1,7 +1,7 @@
 <template>
     <div class="about-page" :style="{ backgroundImage: `url('${pinBoard}')` }">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2 about-page__content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 about-page__content">
                 <div>
                     <Pinned tilt="-2">
                         Welcome to The New 9-to-5! After we lost our normal 9-to-5 jobs during the coronavirus quarantine, we were forced to pivot and find new outlets for our creativity.
@@ -39,13 +39,15 @@ export default {
     min-height: calc(100vh - var(--nav-height));
     background-size: cover;
     background-attachment: fixed;
+    background-color: #9a6030;
     .container {
         padding-top: 80px;
     }
     &__content {
         // background: #fff;
         // padding: 80px 40px 20px;
-        font-size: 24px;
+        font-size: 25px;
+        font-family: 'chalkitup', helvetica, sans-serif;
     }
 }
 </style>

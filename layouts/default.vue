@@ -18,7 +18,6 @@ export default {
     },
     methods: {
         resizeHandler() {
-            console.log('hi')
             if (window.innerWidth < 1023) {
                 this.$store.dispatch('updateIsMobile', true)
             } else {
@@ -29,17 +28,6 @@ export default {
 }
 </script>
 <style>
-:root {
-    --blue: #62c6f8;
-
-    --nav-bg: black;
-    --nav-color: white;
-    --nav-color-hover: tomato;
-    --nav-active: var(--blue);
-
-    --nav-height: 72px;
-    --zindex-nav: 990;
-}
 html {
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
@@ -55,6 +43,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background: #111;
 }
 
 *,
@@ -62,27 +51,5 @@ body {
 *:after {
     box-sizing: border-box;
     margin: 0;
-}
-
-#app {
-    width: 100%;
-}
-main {
-    margin-top: var(--nav-height);
-}
-h1 {
-    font-size: 42px;
-}
-h2 {
-    font-size: 36px;
-}
-h3 {
-    font-size: 28px;
-}
-h4 {
-    font-size: 20px;
-}
-h5 {
-    font-size: 16px;
 }
 </style>
