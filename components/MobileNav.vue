@@ -1,6 +1,6 @@
 <template>
     <div class="mobile-nav w-full">
-        <div class="flex flex-col items-end justify-center">
+        <div class="flex flex-col items-start justify-center">
             <nuxt-link to="/">
                 <span @click="closeNav">Home</span>
             </nuxt-link>
@@ -11,6 +11,20 @@
             <nuxt-link to="/40hww">
                 <span @click="closeNav">40h Work Week</span>
             </nuxt-link>
+            <div class="mobile-nav__subroutes flex flex-col">
+                <nuxt-link :to="$route.name === '40hww' ? '#schedule' : '/40hww/#schedule'">
+                    <span @click="closeNav">Schedule</span>
+                </nuxt-link>
+                <nuxt-link :to="$route.name === '40hww' ? '#musicians' : '/40hww/#musicians'">
+                    <span @click="closeNav">Guest Musicians</span>
+                </nuxt-link>
+                <nuxt-link :to="$route.name === '40hww' ? '#arts-and-crafts' : '/40hww/#arts-and-crafts'">
+                    <span @click="closeNav">Arts & Crafts</span>
+                </nuxt-link>
+                <nuxt-link :to="$route.name === '40hww' ? '#performers' : '/40hww/#performers'">
+                    <span @click="closeNav">Performers</span>
+                </nuxt-link>
+            </div>
             <nuxt-link to="/contact">
                 <span @click="closeNav">Contact</span>
             </nuxt-link>
@@ -39,12 +53,19 @@ export default {
     padding: 30px 60px;
     width: auto;
 
+    &__subroutes {
+        margin-left: 16px;
+        a {
+            margin-top: -8px;
+        }
+    }
+
     a {
         color: var(--nav-color);
         font-size: 18px;
         text-transform: uppercase;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
         white-space: nowrap;
         &.nuxt-link-exact-active {
             color: var(--nav-active);

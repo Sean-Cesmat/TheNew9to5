@@ -3,13 +3,15 @@
         <div class="container mx-auto px-4 nav-container">
             <div class="flex w-full">
                 <div class="w-1/3">
-                    <img src="~/assets/img/9-to-5-SOLO.png" class="nav__logo py-1" @click="$router.push('/')" />
+                    <img src="~/assets/img/the-new-9to5-logo.png" class="nav__logo py-1" @click="$router.push('/')" />
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__desktop">
                     <nuxt-link to="/">Home</nuxt-link>
                     <nuxt-link to="/about">About</nuxt-link>
                     <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
-                    <nuxt-link to="/40hww">40h Work Week</nuxt-link>
+                    <Dropdown>
+                        <nuxt-link to="/40hww">40h Work Week</nuxt-link>
+                    </Dropdown>
                     <nuxt-link to="/contact">Contact</nuxt-link>
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__mobile">
@@ -25,24 +27,42 @@
         </div>
     </div>
 </template>
+<script>
+import Dropdown from '@/components/Dropdown'
+export default {
+    name: 'Nav',
+    components: {
+        Dropdown,
+    },
+}
+</script>
 <style lang="scss" scoped>
 .nav {
     background: var(--nav-bg);
     z-index: 990 !important;
     top: 0;
     height: var(--nav-height);
+    align-items: center;
+    display: flex;
 
     &__logo {
         max-width: 100px;
         cursor: pointer;
+        @include breakpoint-down(sm) {
+            max-width: 80px;
+        }
     }
     a {
         color: var(--nav-color);
-        font-size: 18px;
+        font-size: 16px;
+        font-family: var(--helv);
         text-transform: uppercase;
         font-weight: bold;
+        &:hover {
+            color: var(--nav-active);
+        }
         &:not(:last-child) {
-            margin-right: 16px;
+            margin-right: 20px;
         }
         &.nuxt-link-exact-active {
             color: var(--nav-active);
@@ -61,7 +81,7 @@
             display: flex;
         }
         svg {
-            height: 32px;
+            height: 28px;
             fill: #fff;
         }
     }

@@ -12,15 +12,21 @@
 <script>
 import Nav from '~/components/Nav.vue'
 import MobileNav from '~/components/MobileNav.vue'
+import fileLoaders from '@/mixins/fileLoaders'
+import wallPreload from '@/assets/img/wall-light.jpg'
+import pinboardPreload from '@/assets/img/pinBoard.jpg'
 
 export default {
     components: {
         Nav,
         MobileNav,
     },
+    mixins: [fileLoaders],
     mounted() {
         this.resizeHandler()
         window.addEventListener('resize', this.resizeHandler)
+        this.preloadImage(wallPreload)
+        this.preloadImage(pinboardPreload)
     },
     methods: {
         resizeHandler() {

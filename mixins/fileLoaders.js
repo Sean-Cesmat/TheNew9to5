@@ -3,6 +3,11 @@ const fileLoaders = {
         getImage(file) {
             return require(`@/assets/img/${file}`)
         },
+        preloadImage(src) {
+            const img = new Image()
+
+            img.src = src
+        },
     },
 }
 

@@ -1,10 +1,9 @@
 <template>
     <div class="work-week-page" :style="{ backgroundImage: `url('${wall}')` }">
         <div class="container mx-auto">
-            <div class="flex justify-center">
-                <img src="~/assets/img/40HWW-HEADER.png" class="work-week-page__title" />
+            <div class="flex justify-center work-week-page__title">
+                <img src="~/assets/img/40HWW-HEADER.png" class />
             </div>
-            <Paper />
         </div>
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 work-week-page__intro">
@@ -68,14 +67,12 @@
 
 <script>
 import wall from '@/assets/img/wall-light.jpg'
-import Paper from '@/components/Paper'
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
 import ArtistPolaroid from '@/components/ArtistPolaroid'
 export default {
     name: '40hrWorkWeek',
     components: {
-        Paper,
         Pinned,
         Plaque,
         ArtistPolaroid,
@@ -149,20 +146,48 @@ export default {
 <style lang="scss" scoped>
 .work-week-page {
     min-height: calc(100vh - var(--nav-height));
-    background-size: cover;
-    background-attachment: fixed;
+    // background-size: cover;
+    // background-attachment: fixed;
+    background-position: -99999px -99999px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    &::before {
+        content: '';
+        background-image: inherit;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover;
+        background-size: cover !important;
+        z-index: auto;
+    }
     &__content {
         background: #fff;
         padding: 80px 40px 20px;
         font-size: 20px;
     }
     &__title {
-        width: 740px;
-        max-width: 90%;
-        margin-top: 20px;
+        z-index: 1;
+        position: relative;
+        img {
+            align-self: flex-start;
+            width: 740px;
+            max-width: 90%;
+            margin-top: 20px;
+        }
     }
     &__intro {
         font-size: 28px;
+        ::v-deep {
+            .pinned {
+                align-self: center;
+            }
+        }
         p {
             font-family: var(--marydale);
             line-height: 1;
