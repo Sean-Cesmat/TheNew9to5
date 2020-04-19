@@ -38,7 +38,15 @@ export default {
         transform: translateX(-50%);
         @media screen and (max-width: $lg) {
             min-width: 400vw;
-            margin-top: calc(-1 * 100vw + 200px);
+            margin-top: calc(-1 * 100vw);
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            background: linear-gradient(transparent, #000);
+            bottom: 0;
+            height: 50px;
         }
     }
 }

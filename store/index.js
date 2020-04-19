@@ -7,7 +7,7 @@ export const mutations = {
         state.isMobile = bool
     },
     updateIsNavOpen(state, bool) {
-        state.isMobile = bool
+        state.isNavOpen = bool
     },
 }
 export const actions = {

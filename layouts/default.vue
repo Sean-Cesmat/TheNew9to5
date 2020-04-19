@@ -1,6 +1,9 @@
 <template>
     <div id="app" :class="[$route.name]">
         <Nav />
+        <transition name="navdrawer">
+            <MobileNav v-if="$store.state.isNavOpen" />
+        </transition>
         <main>
             <nuxt />
         </main>
@@ -8,12 +11,15 @@
 </template>
 <script>
 import Nav from '~/components/Nav.vue'
+import MobileNav from '~/components/MobileNav.vue'
 
 export default {
     components: {
         Nav,
+        MobileNav,
     },
     mounted() {
+        this.resizeHandler()
         window.addEventListener('resize', this.resizeHandler)
     },
     methods: {

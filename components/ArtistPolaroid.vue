@@ -6,6 +6,7 @@
         </div>
         <div class="polaroid__main">
             <h2>{{ name }}</h2>
+            <h4>{{ genre }}</h4>
             <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloud" target="_blank">
                 <img src="~/assets/img/soundcloud.svg" />
             </a>
@@ -39,7 +40,7 @@ export default {
             type: String,
             default: null,
         },
-        bio: {
+        genre: {
             type: String,
             default: null,
         },
@@ -58,12 +59,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .polaroid {
-    margin-top: 40px;
+    margin: 40px auto 0px;
     position: relative;
     padding: 44px 40px 40px;
     background: #fff;
     z-index: 1;
     max-width: 90%;
+    transform-origin: top center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    @include breakpoint-down(xl) {
+        padding: 28px 24px 24px;
+    }
     &__hanger {
         position: absolute;
         top: -12px;
@@ -77,6 +84,13 @@ export default {
     &__main {
         h2 {
             font-family: var(--marydale);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        h4 {
+            font-family: var(--marydale);
+            line-height: 1;
+            margin-bottom: 20px;
         }
     }
     &__soundcloud {

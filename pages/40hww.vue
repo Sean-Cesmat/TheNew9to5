@@ -7,54 +7,62 @@
             <Paper />
         </div>
         <div class="container mx-auto">
-            <div class="flex justify-center work-week-page__intro">
-                <Pinned tilt="0" paper-color="yellow">
+            <div class="grid grid-cols-1 md:grid-cols-2 work-week-page__intro">
+                <Pinned :tilt="-0.2" paper-color="var(--yellow)">
+                    <p><span>Dates:</span> April 20 - 24, 9am-5pm PDT</p>
+                    <p><span>Location:</span> twitch.tv/subsetgetsit</p>
+                    <p><span>Hosted by:</span> Subset & The Instigators</p>
+                </Pinned>
+
+                <Pinned :tilt="0.3" class="work-week-page__intro-themes">
                     <p>
-                        <span>Dates:</span> April 20 - 24, 9am-5pm PDT
+                        <span>Daily Themes</span>
                         <br />
-                        <span>Location:</span> twitch.tv/subsetgetsit
-                        <br />
-                        <span>Hosted by:</span> Subset
                     </p>
+                    <p><span>Mon -</span> Spa Day</p>
+                    <p><span>Tue -</span> Flower Power</p>
+                    <p><span>Wed -</span> Weirdos</p>
+                    <p><span>Thu -</span> Holidays</p>
+                    <p><span>Fri -</span> Old Skool Rave</p>
                 </Pinned>
             </div>
         </div>
         <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque title="Daily Schedule" />
+                <Plaque id="schedule" title="Daily Schedule" />
             </div>
             <div class="flex justify-center work-week-page__schedule">
-                <Pinned tilt="0.3" class="work-week-page__schedule-pinned">
+                <Pinned :tilt="0.3" class="work-week-page__schedule-pinned">
                     <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6S6-_yUnP6vndrRfnReOslcCYTt3orld8lWyzXbhwCInJ_W9DI6-UMraNa8id_a5nCaZUe6UxhQSl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                 </Pinned>
             </div>
         </div>
         <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque title="Guest DJs" />
+                <Plaque id="musicians" title="Guest Musicians" />
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__djs">
-                <ArtistPolaroid v-for="dj in djs" :key="dj.id" :name="dj.name" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :paypal="dj.paypal" :bio="dj.bio" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm work-week-page__djs p-4">
+                <ArtistPolaroid v-for="dj in djs" :key="dj.id" :name="dj.name" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :paypal="dj.paypal" :genre="dj.genre" />
             </div>
         </div>
         <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque title="Arts & Crafts" />
+                <Plaque id="arts-and-crafts" title="Arts & Crafts" />
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__arts-crafts"></div>
         </div>
         <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque title="Performers" />
+                <Plaque id="performers" title="Performers" />
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__performers"></div>
         </div>
-        <div class="container mx-auto">
+        <!-- <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque title="Themes" />
+                <Plaque id="themes" title="Themes" />
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__themes"></div>
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -82,7 +90,7 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/buku',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Techno',
                 },
                 {
                     name: 'Codes',
@@ -90,7 +98,7 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/codeshouse',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Jungle',
                 },
                 {
                     name: 'Dunks',
@@ -98,7 +106,7 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/dunks',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Open Format Vinyl',
                 },
                 {
                     name: 'Golf Clap',
@@ -106,7 +114,7 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/golfclapdet',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Tech House',
                 },
                 {
                     name: 'Honeycomb',
@@ -114,7 +122,7 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/honeycomb',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Beatbox Bass',
                 },
                 {
                     name: 'Saltus',
@@ -122,15 +130,15 @@ export default {
                     venmo: 'placeholder',
                     soundcloud: 'placeholder',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Bass',
                 },
                 {
-                    name: 'Skiitour',
+                    name: 'SkiiTour',
                     imageName: 'djs/skiitour.jpg',
                     venmo: 'placeholder',
                     soundcloud: 'https://soundcloud.com/skiitour',
                     paypal: 'placeholder',
-                    bio: '',
+                    genre: 'Bass House',
                 },
             ],
         }
@@ -151,15 +159,41 @@ export default {
     &__title {
         width: 740px;
         max-width: 90%;
+        margin-top: 20px;
     }
     &__intro {
-        font-size: 30px;
+        font-size: 28px;
         p {
-            margin-top: -20px;
             font-family: var(--marydale);
+            line-height: 1;
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+            &:first-of-type {
+                margin-top: -20px;
+            }
             span {
                 font-weight: 900;
             }
+        }
+        .work-week-page__intro-themes {
+            p {
+                font-family: var(--chalkitup);
+                text-align: center;
+                text-transform: uppercase;
+                &:not(:last-child) {
+                    margin-bottom: 4px;
+                }
+                &:first-of-type {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+        @include breakpoint-down(lg) {
+            font-size: 24px;
+        }
+        @include breakpoint-down(sm) {
+            font-size: 18px;
         }
     }
     &__schedule {

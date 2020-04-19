@@ -63,3 +63,18 @@ h5 {
 .page-leave-active {
   opacity: 0;
 }
+
+.navdrawer-enter,
+.navdrawer-leave-to {
+  transform: translateX(100%);
+}
+
+.navdrawer-leave,
+.navdrawer-enter-to {
+  transform: translateX(0);
+}
+
+.navdrawer-enter-active,
+.navdrawer-leave-active {
+  transition: all 250ms;
+}

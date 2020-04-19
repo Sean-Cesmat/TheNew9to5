@@ -22,12 +22,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .pinned {
-    margin-top: 40px;
+    margin: 40px auto 0;
     position: relative;
     padding: 60px 40px 40px;
     background: #fff $noise;
     z-index: 1;
     max-width: 90%;
+    transform-origin: top center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    @include breakpoint-down(xl) {
+        padding: 60px 24px 24px;
+    }
     img {
         position: absolute;
         top: -12px;
@@ -53,19 +58,5 @@ export default {
             display: none;
         }
     }
-    // &:before,
-    // &:after {
-    //     content: '';
-    //     z-index: -1;
-    //     width: 100%;
-
-    //     position: absolute;
-    //     bottom: 20px;
-    //     left: 10px;
-    //     top: 80%;
-
-    //     box-shadow: 0 20px 15px #777;
-    //     transform: rotate(-5deg);
-    // }
 }
 </style>
