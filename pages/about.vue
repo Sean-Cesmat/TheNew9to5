@@ -1,5 +1,5 @@
 <template>
-    <div class="about-page" :style="{ backgroundImage: `url('${pinBoard}')` }">
+    <div class="about-page">
         <div class="container mx-auto pb-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 about-page__content">
                 <div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import pinBoard from '@/assets/img/pinboard.jpg'
+// import pinBoard from '@/assets/img/pinboard.jpg'
 import Pinned from '@/components/Pinned'
 import Caption from '@/components/Caption'
 
@@ -29,11 +29,11 @@ export default {
         Pinned,
         Caption,
     },
-    data() {
-        return {
-            pinBoard,
-        }
-    },
+    // data() {
+    //     return {
+    //         pinBoard,
+    //     }
+    // },
 }
 </script>
 
@@ -43,6 +43,7 @@ export default {
     background-size: cover;
     background-attachment: fixed;
     background-color: #9a6030;
+    background-image: url('../assets/img/pinboard.jpg');
 
     .container {
         padding: 80px 0;

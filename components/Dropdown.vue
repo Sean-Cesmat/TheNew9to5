@@ -39,7 +39,7 @@ export default {
 .dropdown {
     position: relative;
     &__slot {
-        margin-right: 4px;
+        margin-right: 20px;
         cursor: pointer;
         ::v-deep {
             a {
@@ -57,25 +57,25 @@ export default {
     &__main {
         background: #000;
         position: absolute;
-        padding: 16px 8px 8px;
+        padding: 24px 12px 12px;
         min-width: 100%;
         right: 8px;
-    }
-    a {
-        color: var(--nav-color);
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: bold;
-        white-space: nowrap;
-        font-family: var(--helv);
-        text-align: right;
-        margin-right: 16px;
-        &:hover {
-            color: var(--nav-active);
-        }
+        a {
+            color: var(--nav-color);
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            white-space: nowrap;
+            font-family: var(--helv);
+            text-align: right;
+            margin: 4px 0px;
+            &:hover {
+                color: var(--nav-active);
+            }
 
-        &.nuxt-link-exact-active {
-            color: var(--nav-active);
+            &.nuxt-link-exact-active {
+                color: var(--nav-active);
+            }
         }
     }
 }

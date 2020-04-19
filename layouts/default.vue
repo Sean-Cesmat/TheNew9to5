@@ -13,8 +13,8 @@
 import Nav from '~/components/Nav.vue'
 import MobileNav from '~/components/MobileNav.vue'
 import fileLoaders from '@/mixins/fileLoaders'
-// import wallPreload from '@/assets/img/wall-light.jpg'
-// import pinboardPreload from '@/assets/img/pinBoard.jpg'
+import wallPreload from '~/assets/img/wall-light.jpg'
+import pinboardPreload from '~/assets/img/pinboard.jpg'
 
 export default {
     components: {
@@ -25,8 +25,8 @@ export default {
     mounted() {
         this.resizeHandler()
         window.addEventListener('resize', this.resizeHandler)
-        // this.preloadImage(wallPreload)
-        // this.preloadImage(pinboardPreload)
+        this.preloadImage(wallPreload)
+        this.preloadImage(pinboardPreload)
     },
     methods: {
         resizeHandler() {

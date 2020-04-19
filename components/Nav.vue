@@ -46,18 +46,18 @@ export default {
     display: flex;
 
     &__logo {
-        max-width: 100px;
+        max-width: 80px;
         cursor: pointer;
-        @include breakpoint-down(sm) {
-            max-width: 80px;
-        }
     }
     a {
         color: var(--nav-color);
-        font-size: 16px;
+        font-size: 14px;
         font-family: var(--helv);
         text-transform: uppercase;
         font-weight: bold;
+        margin-bottom: -6px;
+        line-height: 1;
+        cursor: pointer;
         &:hover {
             color: var(--nav-active);
         }

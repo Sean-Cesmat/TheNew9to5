@@ -1,5 +1,5 @@
 <template>
-    <div class="work-week-page" :style="{ backgroundImage: `url('${wall}')` }">
+    <div class="work-week-page">
         <div class="container mx-auto">
             <div class="flex justify-center work-week-page__title">
                 <img src="~/assets/img/40HWW-HEADER.png" class />
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import wall from '@/assets/img/wall-light.jpg'
+// import wall from '@/assets/img/wall-light.jpg'
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
 import ArtistPolaroid from '@/components/ArtistPolaroid'
@@ -79,7 +79,7 @@ export default {
     },
     data() {
         return {
-            wall,
+            // wall,
             djs: [
                 {
                     name: 'Buku',
@@ -151,6 +151,7 @@ export default {
     background-position: -99999px -99999px;
     background-repeat: no-repeat;
     background-color: transparent;
+    background-image: url('../assets/img/wall-light.jpg');
 
     &::before {
         content: '';

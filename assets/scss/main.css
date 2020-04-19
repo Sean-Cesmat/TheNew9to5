@@ -55,12 +55,16 @@ h5 {
 }
 
 .page-enter-active,
-.page-leave-active {
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
   transition: opacity 0.25s;
 }
 
 .page-enter,
-.page-leave-active {
+.page-leave-active,
+.layout-enter,
+.layout-leave-active {
   opacity: 0;
 }
 

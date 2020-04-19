@@ -44,7 +44,7 @@ export default {
             content: '';
             position: absolute;
             width: 100%;
-            background: linear-gradient(transparent, #000);
+            background: linear-gradient(transparent, #111);
             bottom: 0;
             height: 50px;
         }

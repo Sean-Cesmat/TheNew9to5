@@ -35,7 +35,6 @@ export default {
 .home-page {
     padding-bottom: 30px;
     &__content {
-        // background: linear-gradient(90deg, rgba(252, 70, 107, 0.85) 0%, rgba(63, 94, 251, 0.85) 100%);
         background: rgba(0, 0, 0, 0.65);
         position: absolute;
         z-index: 1;
