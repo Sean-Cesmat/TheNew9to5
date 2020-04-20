@@ -12,12 +12,12 @@
                     <nuxt-link :to="$route.name === '40hww' ? '#musicians' : '/40hww/#musicians'">
                         <span @click="isOpen = false">Guest Musicians</span>
                     </nuxt-link>
-                    <nuxt-link :to="$route.name === '40hww' ? '#arts-and-crafts' : '/40hww/#arts-and-crafts'">
-                        <span @click="isOpen = false">Arts & Crafts</span>
+                    <nuxt-link :to="$route.name === '40hww' ? '#arts-and-activities' : '/40hww/#arts-and-activities'">
+                        <span @click="isOpen = false">Arts & Activities</span>
                     </nuxt-link>
-                    <nuxt-link :to="$route.name === '40hww' ? '#performers' : '/40hww/#performers'">
+                    <!-- <nuxt-link :to="$route.name === '40hww' ? '#performers' : '/40hww/#performers'">
                         <span @click="isOpen = false">Performers</span>
-                    </nuxt-link>
+                    </nuxt-link>-->
                 </div>
             </div>
         </transition>

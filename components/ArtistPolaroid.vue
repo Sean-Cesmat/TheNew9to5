@@ -3,9 +3,25 @@
         <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
             <img :src="getImage(imageName)" />
+            <a v-if="venmo" class="polaroid__venmo" href="#" target="_blank">
+                <img src="~/assets/img/venmo.png" />
+                <p>{{ venmo }}</p>
+            </a>
+            <a v-else-if="!venmo && website" class="polaroid__venmo" href="#" target="_blank">
+                <!-- <img src="~/assets/img/venmo.png" /> -->
+                <a :href="website" target="_blank">{{ website }}</a>
+            </a>
             <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloudLink" target="_blank">
                 <img src="~/assets/img/soundcloud.svg" />
                 <p>{{ soundcloud }}</p>
+            </a>
+            <a v-if="instagram" class="polaroid__instagram" :href="instagramLink" target="_blank">
+                <img src="~/assets/img/instagram.svg" />
+                <p>{{ instagram }}</p>
+            </a>
+            <a v-else-if="!instagram && website" class="polaroid__instagram" :href="instagramLink" target="_blank">
+                <!-- <img src="~/assets/img/instagram.svg" /> -->
+                <a :href="website" target="_blank">{{ website }}</a>
             </a>
         </div>
     </div>
@@ -17,10 +33,6 @@ export default {
     name: 'Polaroid',
     mixins: [fileLoaders],
     props: {
-        name: {
-            type: String,
-            required: true,
-        },
         imageName: {
             type: String,
             required: true,
@@ -41,7 +53,15 @@ export default {
             type: String,
             default: null,
         },
-        genre: {
+        instagram: {
+            type: String,
+            default: null,
+        },
+        instagramLink: {
+            type: String,
+            default: null,
+        },
+        website: {
             type: String,
             default: null,
         },
@@ -97,15 +117,76 @@ export default {
         bottom: 10%;
         left: 50%;
         transform: translateX(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
         img {
-            max-width: 48px;
+            max-width: 42px;
             display: inline;
+            margin-right: 8px;
+            align-self: center;
         }
         p {
             display: inline;
             color: #444;
-            font-family: var(--marydale);
-            font-size: 18px;
+            font-family: var(--chalkitup);
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    }
+    &__instagram {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+            max-width: 24px;
+            display: inline;
+            margin-right: 8px;
+            align-self: center;
+        }
+        p,
+        a {
+            display: inline;
+            color: #444;
+            font-family: var(--chalkitup);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        a {
+            cursor: pointer;
+        }
+    }
+    &__venmo {
+        position: absolute;
+        bottom: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+            max-width: 24px;
+            display: inline;
+            margin-right: 8px;
+            align-self: center;
+        }
+        p,
+        a {
+            display: inline;
+            color: #444;
+            font-family: var(--chalkitup);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        a {
+            cursor: pointer;
         }
     }
 }

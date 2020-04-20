@@ -47,22 +47,24 @@
             <div class="flex justify-center">
                 <Plaque id="musicians" title="Guest Musicians" />
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm work-week-page__djs p-4">
-                <ArtistPolaroid v-for="dj in djs" :key="dj.id" :name="dj.name" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :paypal="dj.paypal" :genre="dj.genre" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm work-week-page__djs p-4">
+                <ArtistPolaroid v-for="dj in djs" :key="dj.id" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :soundcloud-link="dj.soundcloudLink" :paypal="dj.paypal" :genre="dj.genre" />
             </div>
         </div>
         <div class="container mx-auto">
             <div class="flex justify-center">
-                <Plaque id="arts-and-crafts" title="Arts & Crafts" />
+                <Plaque id="arts-and-activities" title="Arts & Activities" />
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__arts-crafts"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 work-week-page__arts-crafts">
+                <ArtistPolaroid v-for="artist in artists" :key="artist.id" :image-name="artist.imageName" :venmo="artist.venmo" :soundcloud="artist.soundcloud" :soundcloud-link="artist.soundcloudLink" :instagram="artist.instagram" :instagram-link="artist.instagramLink" :paypal="artist.paypal" :website="artist.website" />
+            </div>
         </div>
-        <div class="container mx-auto">
+        <!-- <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="performers" title="Performers" />
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__performers"></div>
-        </div>
+        </div>-->
         <!-- <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="themes" title="Themes" />
@@ -79,7 +81,7 @@ import ArtistPolaroid from '@/components/ArtistPolaroid'
 import fullSchedule from '@/assets/img/40hrWorkWeek.jpg'
 
 export default {
-    name: '40hww',
+    name: 'FourtyHWW',
     components: {
         Pinned,
         Plaque,
@@ -90,67 +92,128 @@ export default {
             fullSchedule,
             djs: [
                 {
-                    name: 'Buku',
                     imageName: 'artists/djs/buku.jpg',
-                    venmo: 'placeholder',
+                    venmo: null,
                     soundcloud: '/buku',
                     soundcloudLink: 'https://soundcloud.com/buku',
                     paypal: 'placeholder',
-                    genre: 'Techno',
                 },
                 {
-                    name: 'Codes',
-                    imageName: 'artists/rawb.jpg',
-                    venmo: 'placeholder',
+                    imageName: 'artists/djs/codes.jpg',
+                    venmo: null,
                     soundcloud: '/codeshouse',
                     soundcloudLink: 'https://soundcloud.com/codeshouse',
                     paypal: 'placeholder',
-                    genre: 'Jungle',
                 },
                 {
-                    name: 'Dunks',
-                    imageName: 'artists/lizzie-rose.jpg',
-                    venmo: 'placeholder',
+                    imageName: 'artists/djs/dunks.jpg',
+                    venmo: null,
                     soundcloud: '/dunks',
                     soundcloudLink: 'https://soundcloud.com/dunks',
                     paypal: 'placeholder',
-                    genre: 'Open Format Vinyl',
                 },
                 {
-                    name: 'Golf Clap',
-                    imageName: 'djs/golfclap.jpg',
-                    venmo: 'placeholder',
+                    imageName: 'artists/djs/golf-clap.jpg',
+                    venmo: null,
                     soundcloud: '/golfclapdet',
                     soundcloudLink: 'https://soundcloud.com/golfclapdet',
                     paypal: 'placeholder',
-                    genre: 'Tech House',
                 },
                 {
-                    name: 'Honeycomb',
-                    imageName: 'djs/honeycomb.jpg',
-                    venmo: 'placeholder',
+                    imageName: 'artists/djs/honeycomb.jpg',
+                    venmo: null,
                     soundcloud: '/honeycomb',
                     soundcloudLink: 'https://soundcloud.com/honeycomb',
                     paypal: 'placeholder',
-                    genre: 'Beatbox Bass',
                 },
                 {
-                    name: 'Saltus',
-                    imageName: 'djs/saltus.jpg',
-                    venmo: 'placeholder',
-                    soundcloud: 'placeholder',
-                    soundcloudLink: 'placeholder',
+                    imageName: 'artists/djs/saltus.jpg',
+                    venmo: null,
+                    soundcloud: '/saltusmusic',
+                    soundcloudLink: 'https://soundcloud.com/saltusmusic',
                     paypal: 'placeholder',
-                    genre: 'Bass',
                 },
                 {
-                    name: 'SkiiTour',
-                    imageName: 'djs/skiitour.jpg',
-                    venmo: 'placeholder',
+                    imageName: 'artists/djs/skiitour.jpg',
+                    venmo: null,
                     soundcloud: '/skiitour',
                     soundcloudLink: 'https://soundcloud.com/skiitour',
                     paypal: 'placeholder',
-                    genre: 'Bass House',
+                },
+            ],
+            artists: [
+                {
+                    imageName: 'artists/alana-miller.jpg',
+                    venmo: '@Alanamama',
+                    instagram: '@millerthriller',
+                    instagramLink: 'https://www.instagram.com/millerthriller/',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/bzen-wellness.jpg',
+                    venmo: '@brittany-boersma',
+                    instagram: null,
+                    instagramLink: null,
+                    paypal: 'placeholder',
+                    website: 'www.bzenwellness.com',
+                },
+                {
+                    imageName: 'artists/carson-whittaker.jpg',
+                    venmo: '@Carson-Whittaker',
+                    instagram: '@carsons_artlife',
+                    instagramLink: 'https://www.instagram.com/carsons_artlife/',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/dorienn-medrano.jpg',
+                    venmo: null,
+                    instagram: '@doriennmara',
+                    instagramLink: 'https://www.instagram.com/doriennmara/',
+                    paypal: 'placeholder',
+                    website: 'https://www.doriennmedrano.com/',
+                },
+                {
+                    imageName: 'artists/eddy-sato.jpg',
+                    venmo: '@eddy-sato',
+                    instagram: '@youruncleeddy',
+                    instagramLink: 'http://instagram.com/youruncleeddy',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/lina-alf.jpg',
+                    venmo: '@linaalf',
+                    instagram: '@linaalf',
+                    instagramLink: 'https://www.instagram.com/linaalf/',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/lizzie-rose.jpg',
+                    venmo: '@lizzierosemedia',
+                    instagram: '@lizzierosemedia',
+                    instagramLink: 'http://instagram.com/lizzierosemedia',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/melolagnia.jpg',
+                    venmo: '@melolagnia',
+                    instagram: '@melolagnia',
+                    instagramLink: 'https://www.instagram.com/melolagnia',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/rawb-lane.jpg',
+                    venmo: '@rawb-lane',
+                    instagram: '@rawblane',
+                    instagramLink: 'https://www.instagram.com/rawblane/',
+                    paypal: 'placeholder',
+                },
+                {
+                    imageName: 'artists/ruthie-kallai.jpg',
+                    venmo: '@ruthie8',
+                    instagram: '@ruthiekallai',
+                    instagramLink: 'https://www.instagram.com/ruthiekallai/',
+                    paypal: 'placeholder',
+                    website: 'www.ruthiekallai.com',
                 },
             ],
         }
@@ -165,6 +228,7 @@ export default {
     background-repeat: no-repeat;
     background-color: transparent;
     background-image: url('../assets/img/wall-light.jpg');
+    padding-bottom: 60px;
 
     &::before {
         content: '';
@@ -268,7 +332,7 @@ export default {
     }
     &__schedule-img-cont {
         width: 100%;
-        min-height: 480px;
+        min-height: 500px;
         overflow-x: scroll;
         img {
             width: 100%;

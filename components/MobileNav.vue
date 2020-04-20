@@ -1,15 +1,12 @@
 <template>
     <div class="mobile-nav w-full">
         <div class="flex flex-col items-start justify-center">
-            <nuxt-link to="/">
+            <!-- <nuxt-link to="/">
                 <span @click="closeNav">Home</span>
-            </nuxt-link>
-            <nuxt-link to="/about">
-                <span @click="closeNav">About</span>
-            </nuxt-link>
+            </!-->
             <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
             <nuxt-link to="/40hww">
-                <span @click="closeNav">40h Work Week</span>
+                <span @click="closeNav">40HWW</span>
             </nuxt-link>
             <div class="mobile-nav__subroutes flex flex-col">
                 <nuxt-link :to="$route.name === '40hww' ? '#schedule' : '/40hww/#schedule'">
@@ -18,18 +15,21 @@
                 <nuxt-link :to="$route.name === '40hww' ? '#musicians' : '/40hww/#musicians'">
                     <span @click="closeNav">Guest Musicians</span>
                 </nuxt-link>
-                <nuxt-link :to="$route.name === '40hww' ? '#arts-and-crafts' : '/40hww/#arts-and-crafts'">
-                    <span @click="closeNav">Arts & Crafts</span>
+                <nuxt-link :to="$route.name === '40hww' ? '#arts-and-activities' : '/40hww/#arts-and-activities'">
+                    <span @click="closeNav">Arts & Activities</span>
                 </nuxt-link>
-                <nuxt-link :to="$route.name === '40hww' ? '#performers' : '/40hww/#performers'">
+                <!-- <nuxt-link :to="$route.name === '40hww' ? '#performers' : '/40hww/#performers'">
                     <span @click="closeNav">Performers</span>
-                </nuxt-link>
+                </nuxt-link>-->
             </div>
+            <nuxt-link to="/email">
+                <span @click="closeNav">Email</span>
+            </nuxt-link>
+            <nuxt-link to="/about">
+                <span @click="closeNav">About</span>
+            </nuxt-link>
             <nuxt-link to="/contact">
                 <span @click="closeNav">Contact</span>
-            </nuxt-link>
-            <nuxt-link to="/email-list">
-                <span @click="closeNav">Email List</span>
             </nuxt-link>
         </div>
     </div>

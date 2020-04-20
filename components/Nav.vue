@@ -6,14 +6,14 @@
                     <img src="~/assets/img/the-new-9to5-logo.png" class="nav__logo py-1" @click="$router.push('/')" />
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__desktop">
-                    <nuxt-link to="/">Home</nuxt-link>
-                    <nuxt-link to="/about">About</nuxt-link>
-                    <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
+                    <!-- <nuxt-link to="/">Home</nuxt-link> -->
                     <Dropdown>
-                        <nuxt-link to="/40hww">40h Work Week</nuxt-link>
+                        <nuxt-link to="/40hww">40HWW</nuxt-link>
                     </Dropdown>
+                    <nuxt-link to="/email">Email</nuxt-link>
+                    <nuxt-link to="/about">About</nuxt-link>
                     <nuxt-link to="/contact">Contact</nuxt-link>
-                    <nuxt-link to="/email-list">Email List</nuxt-link>
+                    <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__mobile">
                     <button @click="$store.dispatch('updateIsNavOpen', !$store.state.isNavOpen)">

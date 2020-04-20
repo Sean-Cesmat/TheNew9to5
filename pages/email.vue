@@ -1,5 +1,5 @@
 <template>
-    <div class="email-list flex items-center">
+    <div class="email flex items-center">
         <div class="container mx-auto">
             <div class="flex w-full grid grid-cols-1">
                 <div class="flex justify-center items-center flex-col">
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-    name: 'EmailList',
+    name: 'Email',
 }
 </script>
 <style>
@@ -21,7 +21,7 @@ body.freebirdFormviewerViewEmbedded {
 }
 </style>
 <style lang="scss" scoped>
-.email-list {
+.email {
     background: var(--blue);
     min-height: calc(100vh - var(--nav-height));
     padding: 20px 20px 0px;
