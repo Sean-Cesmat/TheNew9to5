@@ -100,7 +100,7 @@ export default {
                 },
                 {
                     name: 'Codes',
-                    imageName: 'djs/codes.jpg',
+                    imageName: 'artists/rawb.jpg',
                     venmo: 'placeholder',
                     soundcloud: '/codeshouse',
                     soundcloudLink: 'https://soundcloud.com/codeshouse',
@@ -109,7 +109,7 @@ export default {
                 },
                 {
                     name: 'Dunks',
-                    imageName: 'djs/dunks.jpg',
+                    imageName: 'artists/lizzie-rose.jpg',
                     venmo: 'placeholder',
                     soundcloud: '/dunks',
                     soundcloudLink: 'https://soundcloud.com/dunks',
