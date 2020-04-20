@@ -6,7 +6,7 @@
             </nuxt-link>
             <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
             <nuxt-link to="/40hww">
-                <span @click="closeNav">40HWW</span>
+                <span @click="closeNav">40h Work Week</span>
             </nuxt-link>
             <div class="mobile-nav__subroutes flex flex-col">
                 <nuxt-link :to="$route.name === '40hww' ? '#schedule' : '/40hww/#schedule'">
@@ -22,8 +22,8 @@
                     <span @click="closeNav">Performers</span>
                 </nuxt-link>-->
             </div>
-            <nuxt-link to="/email">
-                <span @click="closeNav">Email</span>
+            <nuxt-link to="/email-list">
+                <span @click="closeNav">Email List</span>
             </nuxt-link>
             <nuxt-link to="/about">
                 <span @click="closeNav">About</span>
