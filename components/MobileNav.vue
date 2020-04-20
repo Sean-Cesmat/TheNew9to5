@@ -1,9 +1,9 @@
 <template>
     <div class="mobile-nav w-full">
         <div class="flex flex-col items-start justify-center">
-            <!-- <nuxt-link to="/">
+            <nuxt-link to="/">
                 <span @click="closeNav">Home</span>
-            </!-->
+            </nuxt-link>
             <!-- <nuxt-link to="/schedule">Schedule</nuxt-link> -->
             <nuxt-link to="/40hww">
                 <span @click="closeNav">40HWW</span>

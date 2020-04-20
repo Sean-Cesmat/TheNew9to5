@@ -6,7 +6,7 @@
                     <img src="~/assets/img/the-new-9to5-logo.png" class="nav__logo py-1" @click="$router.push('/')" />
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__desktop">
-                    <!-- <nuxt-link to="/">Home</nuxt-link> -->
+                    <nuxt-link to="/">Home</nuxt-link>
                     <Dropdown>
                         <nuxt-link to="/40hww">40HWW</nuxt-link>
                     </Dropdown>
