@@ -20,8 +20,8 @@
                     <p class="work-week-page__intro-themes-spacer"></p>
                     <p><span>Mon -</span> Spa Day</p>
                     <p><span>Tue -</span> Flower Power</p>
-                    <p><span>Wed -</span> Weirdos</p>
-                    <p><span>Thu -</span> Holidays</p>
+                    <p><span>Wed -</span> Weirdos Unite</p>
+                    <p><span>Thu -</span> Holiday Party</p>
                     <p><span>Fri -</span> Old Skool Rave</p>
                     <p class="work-week-page__intro-themes-spacer"></p>
                 </Pinned>
@@ -33,7 +33,13 @@
             </div>
             <div class="flex justify-center work-week-page__schedule">
                 <Pinned :tilt="0.3" class="work-week-page__schedule-pinned">
+                    <!-- <div class="work-week-page__schedule-img-cont">
+                        <img src="~/assets/img/40hww-schedule.jpg" />
+                    </div>-->
                     <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6S6-_yUnP6vndrRfnReOslcCYTt3orld8lWyzXbhwCInJ_W9DI6-UMraNa8id_a5nCaZUe6UxhQSl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                    <div class="flex justify-center">
+                        <a :href="fullSchedule" download="40hrWorkWeekSchedule.jpg" class="work-week-page__schedule-download">Download Schedule</a>
+                    </div>
                 </Pinned>
             </div>
         </div>
@@ -70,6 +76,8 @@
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
 import ArtistPolaroid from '@/components/ArtistPolaroid'
+import fullSchedule from '@/assets/img/40hrWorkWeek.jpg'
+
 export default {
     name: '40hww',
     components: {
@@ -79,12 +87,14 @@ export default {
     },
     data() {
         return {
+            fullSchedule,
             djs: [
                 {
                     name: 'Buku',
-                    imageName: 'djs/buku.jpg',
+                    imageName: 'artists/djs/buku.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/buku',
+                    soundcloud: '/buku',
+                    soundcloudLink: 'https://soundcloud.com/buku',
                     paypal: 'placeholder',
                     genre: 'Techno',
                 },
@@ -92,7 +102,8 @@ export default {
                     name: 'Codes',
                     imageName: 'djs/codes.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/codeshouse',
+                    soundcloud: '/codeshouse',
+                    soundcloudLink: 'https://soundcloud.com/codeshouse',
                     paypal: 'placeholder',
                     genre: 'Jungle',
                 },
@@ -100,7 +111,8 @@ export default {
                     name: 'Dunks',
                     imageName: 'djs/dunks.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/dunks',
+                    soundcloud: '/dunks',
+                    soundcloudLink: 'https://soundcloud.com/dunks',
                     paypal: 'placeholder',
                     genre: 'Open Format Vinyl',
                 },
@@ -108,7 +120,8 @@ export default {
                     name: 'Golf Clap',
                     imageName: 'djs/golfclap.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/golfclapdet',
+                    soundcloud: '/golfclapdet',
+                    soundcloudLink: 'https://soundcloud.com/golfclapdet',
                     paypal: 'placeholder',
                     genre: 'Tech House',
                 },
@@ -116,7 +129,8 @@ export default {
                     name: 'Honeycomb',
                     imageName: 'djs/honeycomb.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/honeycomb',
+                    soundcloud: '/honeycomb',
+                    soundcloudLink: 'https://soundcloud.com/honeycomb',
                     paypal: 'placeholder',
                     genre: 'Beatbox Bass',
                 },
@@ -125,6 +139,7 @@ export default {
                     imageName: 'djs/saltus.jpg',
                     venmo: 'placeholder',
                     soundcloud: 'placeholder',
+                    soundcloudLink: 'placeholder',
                     paypal: 'placeholder',
                     genre: 'Bass',
                 },
@@ -132,7 +147,8 @@ export default {
                     name: 'SkiiTour',
                     imageName: 'djs/skiitour.jpg',
                     venmo: 'placeholder',
-                    soundcloud: 'https://soundcloud.com/skiitour',
+                    soundcloud: '/skiitour',
+                    soundcloudLink: 'https://soundcloud.com/skiitour',
                     paypal: 'placeholder',
                     genre: 'Bass House',
                 },
@@ -247,7 +263,31 @@ export default {
         }
         iframe {
             width: 100%;
-            min-height: 640px;
+            min-height: 720px;
+        }
+    }
+    &__schedule-img-cont {
+        width: 100%;
+        height: 600px;
+        overflow-x: scroll;
+        img {
+            width: 100%;
+            min-width: 1000px;
+        }
+    }
+    &__schedule-download {
+        background: #000000;
+        padding: 8px 40px;
+        font-size: 23px;
+        font-weight: 600;
+        text-transform: uppercase;
+        max-width: 100%;
+        color: #62c6f8;
+        margin: 20px auto 8px;
+        white-space: nowrap;
+        cursor: pointer;
+        @include breakpoint-down(md) {
+            font-size: 18px;
         }
     }
 }

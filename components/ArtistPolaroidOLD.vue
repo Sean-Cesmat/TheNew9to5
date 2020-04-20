@@ -3,9 +3,12 @@
         <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
             <img :src="getImage(imageName)" />
-            <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloudLink" target="_blank">
+        </div>
+        <div class="polaroid__main">
+            <h2>{{ name }}</h2>
+            <h4>{{ genre }}</h4>
+            <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloud" target="_blank">
                 <img src="~/assets/img/soundcloud.svg" />
-                <p>{{ soundcloud }}</p>
             </a>
         </div>
     </div>
@@ -37,10 +40,6 @@ export default {
             type: String,
             default: null,
         },
-        soundcloudLink: {
-            type: String,
-            default: null,
-        },
         genre: {
             type: String,
             default: null,
@@ -62,14 +61,16 @@ export default {
 .polaroid {
     margin: 40px auto 0px;
     position: relative;
+    padding: 44px 40px 40px;
+    background: #fff;
     z-index: 1;
     max-width: 90%;
     transform-origin: top center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-    // @include breakpoint-down(xl) {
-    //     padding: 28px 24px 24px;
-    // }
+    @include breakpoint-down(xl) {
+        padding: 28px 24px 24px;
+    }
     &__hanger {
         position: absolute;
         top: -12px;
@@ -93,19 +94,8 @@ export default {
         }
     }
     &__soundcloud {
-        position: absolute;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%);
         img {
             max-width: 48px;
-            display: inline;
-        }
-        p {
-            display: inline;
-            color: #444;
-            font-family: var(--marydale);
-            font-size: 18px;
         }
     }
 }
