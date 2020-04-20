@@ -268,11 +268,11 @@ export default {
     }
     &__schedule-img-cont {
         width: 100%;
-        height: 600px;
+        min-height: 480px;
         overflow-x: scroll;
         img {
             width: 100%;
-            min-width: 1000px;
+            min-width: 800px;
         }
     }
     &__schedule-download {
