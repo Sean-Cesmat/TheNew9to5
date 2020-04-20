@@ -1,6 +1,6 @@
 <template>
     <div class="pinned" :class="{ 'pinned--noafter': paperColor !== '#fff' }" :style="{ transform: `rotate(${tilt}deg)`, backgroundColor: paperColor }">
-        <img src="~/assets/img/thumbtack.png" />
+        <img src="~/assets/img/thumbtack.png" class="pinned__img" />
         <slot></slot>
     </div>
 </template>
@@ -33,7 +33,7 @@ export default {
     @include breakpoint-down(xl) {
         padding: 60px 24px 24px;
     }
-    img {
+    &__img {
         position: absolute;
         top: -12px;
         max-width: 60px;

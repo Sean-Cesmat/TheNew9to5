@@ -33,10 +33,10 @@
             </div>
             <div class="flex justify-center work-week-page__schedule">
                 <Pinned :tilt="0.3" class="work-week-page__schedule-pinned">
-                    <!-- <div class="work-week-page__schedule-img-cont">
+                    <div class="work-week-page__schedule-img-cont">
                         <img src="~/assets/img/40hww-schedule.jpg" />
-                    </div>-->
-                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6S6-_yUnP6vndrRfnReOslcCYTt3orld8lWyzXbhwCInJ_W9DI6-UMraNa8id_a5nCaZUe6UxhQSl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                    </div>
+                    <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6S6-_yUnP6vndrRfnReOslcCYTt3orld8lWyzXbhwCInJ_W9DI6-UMraNa8id_a5nCaZUe6UxhQSl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
                     <div class="flex justify-center">
                         <a :href="fullSchedule" download="40hrWorkWeekSchedule.jpg" class="work-week-page__schedule-download">Download Schedule</a>
                     </div>
