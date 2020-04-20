@@ -13,6 +13,7 @@
                         <nuxt-link to="/40hww">40h Work Week</nuxt-link>
                     </Dropdown>
                     <nuxt-link to="/contact">Contact</nuxt-link>
+                    <nuxt-link to="/email-list">Email List</nuxt-link>
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__mobile">
                     <button @click="$store.dispatch('updateIsNavOpen', !$store.state.isNavOpen)">

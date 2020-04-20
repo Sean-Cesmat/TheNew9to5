@@ -7,8 +7,8 @@
         </div>
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 work-week-page__intro">
-                <Pinned :tilt="-0.2" paper-color="var(--yellow)">
-                    <p><span>Dates:</span> April 20 - 24, 9am-5pm PDT</p>
+                <Pinned :tilt="-0.2" paper-color="var(--yellow)" class="work-week-page__intro-pinned">
+                    <p><span>Dates:</span> April 20-24, 9am-5pm PDT</p>
                     <p><span>Location:</span> twitch.tv/subsetgetsit</p>
                     <p><span>Hosted by:</span> Subset & The Instigators</p>
                 </Pinned>
@@ -16,13 +16,14 @@
                 <Pinned :tilt="0.3" class="work-week-page__intro-themes">
                     <p>
                         <span>Daily Themes</span>
-                        <br />
                     </p>
+                    <p class="work-week-page__intro-themes-spacer"></p>
                     <p><span>Mon -</span> Spa Day</p>
                     <p><span>Tue -</span> Flower Power</p>
                     <p><span>Wed -</span> Weirdos</p>
                     <p><span>Thu -</span> Holidays</p>
                     <p><span>Fri -</span> Old Skool Rave</p>
+                    <p class="work-week-page__intro-themes-spacer"></p>
                 </Pinned>
             </div>
         </div>
@@ -66,12 +67,11 @@
 </template>
 
 <script>
-// import wall from '@/assets/img/wall-light.jpg'
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
 import ArtistPolaroid from '@/components/ArtistPolaroid'
 export default {
-    name: '40hrWorkWeek',
+    name: '40hww',
     components: {
         Pinned,
         Plaque,
@@ -79,7 +79,6 @@ export default {
     },
     data() {
         return {
-            // wall,
             djs: [
                 {
                     name: 'Buku',
@@ -146,8 +145,6 @@ export default {
 <style lang="scss" scoped>
 .work-week-page {
     min-height: calc(100vh - var(--nav-height));
-    // background-size: cover;
-    // background-attachment: fixed;
     background-position: -99999px -99999px;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -202,6 +199,14 @@ export default {
                 font-weight: 900;
             }
         }
+        &-pinned {
+            p {
+                white-space: nowrap;
+                span {
+                    white-space: normal;
+                }
+            }
+        }
         .work-week-page__intro-themes {
             p {
                 font-family: var(--chalkitup);
@@ -210,8 +215,22 @@ export default {
                 &:not(:last-child) {
                     margin-bottom: 4px;
                 }
+                // &:first-of-type {
+                //     margin-bottom: 24px;
+                // }
+                border-bottom: 1px solid var(--blue-lines);
                 &:first-of-type {
-                    margin-bottom: 24px;
+                    border-top: 1px solid var(--blue-lines);
+                    padding-top: 4px;
+                }
+                &.work-week-page__intro-themes-spacer {
+                    height: 28px;
+                    @include breakpoint-down(lg) {
+                        height: 24px;
+                    }
+                    @include breakpoint-down(sm) {
+                        height: 18px;
+                    }
                 }
             }
         }

@@ -15,9 +15,10 @@
 :root {
   --blue: #62c6f8;
   --yellow: #faee03;
+  --blue-lines: #d1defb;
+  --red: #dc3839;
   --nav-bg: black;
   --nav-color: white;
-  --nav-color-hover: tomato;
   --nav-active: var(--blue);
   --nav-height: 72px;
   --zindex-nav: 990;

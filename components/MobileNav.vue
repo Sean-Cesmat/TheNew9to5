@@ -28,6 +28,9 @@
             <nuxt-link to="/contact">
                 <span @click="closeNav">Contact</span>
             </nuxt-link>
+            <nuxt-link to="/email-list">
+                <span @click="closeNav">Email List</span>
+            </nuxt-link>
         </div>
     </div>
 </template>
