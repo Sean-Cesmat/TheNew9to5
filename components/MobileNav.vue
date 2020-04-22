@@ -18,9 +18,9 @@
                 <nuxt-link :to="$route.name === '40hww' ? '#arts-and-activities' : '/40hww/#arts-and-activities'">
                     <span @click="closeNav">Arts & Activities</span>
                 </nuxt-link>
-                <!-- <nuxt-link :to="$route.name === '40hww' ? '#dancers' : '/40hww/#dancers'">
+                <nuxt-link :to="$route.name === '40hww' ? '#dancers' : '/40hww/#dancers'">
                     <span @click="closeNav">Dancers</span>
-                </nuxt-link> -->
+                </nuxt-link>
             </div>
             <nuxt-link to="/email-list">
                 <span @click="closeNav">Email List</span>

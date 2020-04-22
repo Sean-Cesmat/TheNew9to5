@@ -59,14 +59,14 @@
                 <ArtistPolaroid v-for="artist in artists" :key="artist.id" :image-name="artist.imageName" :venmo="artist.venmo" :soundcloud="artist.soundcloud" :soundcloud-link="artist.soundcloudLink" :instagram="artist.instagram" :instagram-link="artist.instagramLink" :website="artist.website" />
             </div>
         </div>
-        <!-- <div class="container mx-auto">
+        <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="dancers" title="Dancers" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 work-week-page__dancers">
                 <ArtistPolaroid v-for="dancer in dancers" :key="dancer.id" :image-name="dancer.imageName" :venmo="dancer.venmo" :soundcloud="dancer.soundcloud" :soundcloud-link="dancer.soundcloudLink" :instagram="dancer.instagram" :instagram-link="dancer.instagramLink" :website="dancer.website" />
             </div>
-        </div> -->
+        </div>
         <!-- <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="themes" title="Themes" />
@@ -151,6 +151,12 @@ export default {
                     website: 'bzenwellness.com',
                 },
                 {
+                    imageName: 'artists/caleb-jay.jpg',
+                    venmo: null,
+                    instagram: '@calebjay.art',
+                    instagramLink: 'http://www.insatgram.com/calebjay.art',
+                },
+                {
                     imageName: 'artists/carson-whittaker.jpg',
                     venmo: '@Carson-Whittaker',
                     instagram: '@carsons_artlife',
@@ -214,104 +220,104 @@ export default {
                     website: 'ruthiekallai.com',
                 },
             ],
-            // dancers: [
-            //     {
-            //         imageName: 'artists/christina.jpg',
-            //         venmo: '@demachristina',
-            //         instagram: '@demachristina',
-            //         instagramLink: 'https://www.instagram.com/demachristina/',
-            //     },
-            //     {
-            //         imageName: 'artists/citywitch.jpg',
-            //         venmo: '@citywitch',
-            //         instagram: '@citywitchx',
-            //         instagramLink: 'https://www.instagram.com/citywitchx/',
-            //     },
-            //     {
-            //         imageName: 'artists/gabriela.jpg',
-            //         venmo: '@gabriela.dancer',
-            //         instagram: '@gygarcia',
-            //         instagramLink: 'https://www.instagram.com/gygarcia/',
-            //     },
-            //     {
-            //         imageName: 'artists/haley.jpg',
-            //         venmo: '@haley-jensen-29',
-            //         instagram: '@thebonegoddess',
-            //         instagramLink: 'https://www.instagram.com/thebonegoddess/',
-            //     },
-            //     {
-            //         imageName: 'artists/heartbreaker.jpg',
-            //         venmo: '@heartbreaker',
-            //         instagram: '@heart_break_dancer',
-            //         instagramLink: 'https://www.instagram.com/heart_break_dancer/',
-            //     },
-            //     {
-            //         imageName: 'artists/hularev.jpg',
-            //         venmo: '@hularev',
-            //         instagram: '@hularev',
-            //         instagramLink: 'https://www.instagram.com/hularevf/',
-            //     },
-            //     {
-            //         imageName: 'artists/jenn.jpg',
-            //         venmo: '@mitch_cadigan',
-            //         instagram: '@jenn_ranalli',
-            //         instagramLink: 'https://www.instagram.com/jenn_ranalli/',
-            //     },
-            //     {
-            //         imageName: 'artists/lydia.jpg',
-            //         venmo: '@lyd_viciouz',
-            //         instagram: '@lyd_viciouz',
-            //         instagramLink: 'https://www.instagram.com/lyd_viciouz/',
-            //     },
-            //     {
-            //         imageName: 'artists/michelle.jpg',
-            //         venmo: '@michelle-zurita',
-            //         instagram: '@chellune',
-            //         instagramLink: 'https://www.instagram.com/chellune/',
-            //     },
-            //     {
-            //         imageName: 'artists/nia.jpg',
-            //         venmo: '@nia-hayes',
-            //         instagram: '@niaonfia',
-            //         instagramLink: 'https://www.instagram.com/niaonfia/',
-            //     },
-            //     {
-            //         imageName: 'artists/phoenix.jpg',
-            //         venmo: '@phoenix-ha',
-            //         instagram: '@phoenix.fireflow',
-            //         instagramLink: 'https://www.instagram.com/phoenix.fireflow/',
-            //     },
-            //     {
-            //         imageName: 'artists/rae-chrysalis.jpg',
-            //         venmo: '@rachel-koshiol',
-            //         instagram: '@beamingrae_',
-            //         instagramLink: 'https://www.instagram.com/beamingrae_/',
-            //     },
-            //     {
-            //         imageName: 'artists/regan.jpg',
-            //         venmo: '@reganpowers0627',
-            //         instagram: '@_miss_powers_',
-            //         instagramLink: 'https://www.instagram.com/_miss_powers_/',
-            //     },
-            //     {
-            //         imageName: 'artists/saturn.jpg',
-            //         venmo: '@Saturn-Reyes',
-            //         instagram: '@saturn_superstar',
-            //         instagramLink: 'https://www.instagram.com/saturn_superstar/',
-            //     },
-            //     {
-            //         imageName: 'artists/tae.jpg',
-            //         venmo: '@',
-            //         instagram: '@',
-            //         instagramLink: 'https://www.instagram.com//',
-            //     },
-            //     {
-            //         imageName: 'artists/tracey.jpg',
-            //         venmo: '@queenofthehill',
-            //         instagram: '@mactrayy',
-            //         instagramLink: 'https://www.instagram.com/mactrayy/',
-            //     },
-            // ],
+            dancers: [
+                {
+                    imageName: 'artists/dancers/christina-demaria.jpg',
+                    venmo: '@demachristina',
+                    instagram: '@demachristina',
+                    instagramLink: 'https://www.instagram.com/demachristina/',
+                },
+                {
+                    imageName: 'artists/dancers/city-witch.jpg',
+                    venmo: '@citywitch',
+                    instagram: '@citywitchx',
+                    instagramLink: 'https://www.instagram.com/citywitchx/',
+                },
+                {
+                    imageName: 'artists/dancers/gabriela-yanette.jpg',
+                    venmo: '@gabriela.dancer',
+                    instagram: '@gygarcia',
+                    instagramLink: 'https://www.instagram.com/gygarcia/',
+                },
+                {
+                    imageName: 'artists/dancers/heartbreaker.jpg',
+                    venmo: '@heartbreaker',
+                    instagram: '@heart_break_dancer',
+                    instagramLink: 'https://www.instagram.com/heart_break_dancer/',
+                },
+                {
+                    imageName: 'artists/dancers/hula-rev.jpg',
+                    venmo: '@hularev',
+                    instagram: '@hularev',
+                    instagramLink: 'https://www.instagram.com/hularevf/',
+                },
+                {
+                    imageName: 'artists/dancers/jenn-ranalli.jpg',
+                    venmo: '@mitch_cadigan',
+                    instagram: '@jenn_ranalli',
+                    instagramLink: 'https://www.instagram.com/jenn_ranalli/',
+                },
+                {
+                    imageName: 'artists/dancers/lydia-booth.jpg',
+                    venmo: '@lyd_viciouz',
+                    instagram: '@lyd_viciouz',
+                    instagramLink: 'https://www.instagram.com/lyd_viciouz/',
+                },
+                {
+                    imageName: 'artists/dancers/michelle-santoyo.jpg',
+                    venmo: '@michelle-zurita',
+                    instagram: '@chellune',
+                    instagramLink: 'https://www.instagram.com/chellune/',
+                },
+                {
+                    imageName: 'artists/dancers/miss-powers.jpg',
+                    venmo: '@reganpowers0627',
+                    instagram: '@_miss_powers_',
+                    instagramLink: 'https://www.instagram.com/_miss_powers_/',
+                },
+                {
+                    imageName: 'artists/dancers/nia-hayes.jpg',
+                    venmo: '@nia-hayes',
+                    instagram: '@niaonfia',
+                    instagramLink: 'https://www.instagram.com/niaonfia/',
+                },
+                {
+                    imageName: 'artists/dancers/phoenix-ha.jpg',
+                    venmo: '@phoenix-ha',
+                    instagram: '@phoenix.fireflow',
+                    instagramLink: 'https://www.instagram.com/phoenix.fireflow/',
+                },
+                {
+                    imageName: 'artists/dancers/rae-chrysalis.jpg',
+                    venmo: '@rachel-koshiol',
+                    instagram: '@beamingrae_',
+                    instagramLink: 'https://www.instagram.com/beamingrae_/',
+                },
+                {
+                    imageName: 'artists/dancers/saturn-superstar.jpg',
+                    venmo: '@Saturn-Reyes',
+                    instagram: '@saturn_superstar',
+                    instagramLink: 'https://www.instagram.com/saturn_superstar/',
+                },
+                {
+                    imageName: 'artists/dancers/tae-callahan.jpg',
+                    venmo: '@chaiitae',
+                    instagram: '@taeshantii',
+                    instagramLink: 'https://www.instagram.com/taeshantii/',
+                },
+                {
+                    imageName: 'artists/dancers/the-bone-goddess.jpg',
+                    venmo: '@haley-jensen-29',
+                    instagram: '@thebonegoddess',
+                    instagramLink: 'https://www.instagram.com/thebonegoddess/',
+                },
+                {
+                    imageName: 'artists/dancers/tracey-wong.jpg',
+                    venmo: '@queenofthehill',
+                    instagram: '@mactrayy',
+                    instagramLink: 'https://www.instagram.com/mactrayy/',
+                },
+            ],
         }
     },
 }
