@@ -1,7 +1,14 @@
+import axios from 'axios'
+const dynamicRoutes = () => {
+    return axios.get('https://thenew9to5.seancesmat.com/index.php?rest_route=/wp/v2/posts').then((res) => {
+        return res.data.map((post) => `/posts/${post.slug}`)
+    })
+}
 export default {
     mode: 'universal',
     generate: {
         dir: 'dist',
+        routes: dynamicRoutes,
     },
     /*
      ** Headers of the page

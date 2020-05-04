@@ -22,6 +22,9 @@ export default {
         MobileNav,
     },
     mixins: [fileLoaders],
+    created() {
+        this.$store.dispatch('getPages')
+    },
     mounted() {
         this.resizeHandler()
         window.addEventListener('resize', this.resizeHandler)
