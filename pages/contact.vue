@@ -6,6 +6,7 @@
                     <img :src="contactPage.acf.image" />
                 </div>
                 <div class="flex justify-center items-center flex-col">
+                    <!-- eslint-disable-next-line -->
                     <h4 class="mb-2" v-html="contactPage.acf.main_text" />
                     <iframe id="JotFormIFrame-201081051342135" title="Contact Us" onload="window.parent.scrollTo(0,0)" allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera" src="https://form.jotform.com/201081051342135" frameborder="0" style=" min-width: 100%; height:539px; border:none;" scrolling="no"></iframe>
                 </div>

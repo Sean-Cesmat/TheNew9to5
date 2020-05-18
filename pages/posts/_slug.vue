@@ -3,6 +3,7 @@
         <div class="container mx-auto">
             <Pinned v-if="post" class="individual-post__main">
                 <h1>{{ post.title.rendered }}</h1>
+                <!-- eslint-disable-next-line -->
                 <section v-html="post.content.rendered"></section>
             </Pinned>
             <Pinned v-else>Loading...</Pinned>

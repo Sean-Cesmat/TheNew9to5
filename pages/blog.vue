@@ -9,6 +9,7 @@
                         <!-- for each one of them, we’ll render their title, and link off to their individual page -->
                         <a :href="`posts/${post.slug}`">{{ post.title.rendered }}</a>
                     </h3>
+                    <!-- eslint-disable-next-line -->
                     <div v-html="post.excerpt.rendered"></div>
                     <a :href="`posts/${post.slug}`" class="readmore">Read more ⟶</a>
                 </PinnedPost>
