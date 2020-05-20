@@ -65,6 +65,7 @@ export default {
         // Doc: https://github.com/nuxt-community/dotenv-module
         '@nuxtjs/dotenv',
         '@nuxtjs/style-resources',
+        '@nuxtjs/svg-sprite',
     ],
     /*
      ** Axios module configuration

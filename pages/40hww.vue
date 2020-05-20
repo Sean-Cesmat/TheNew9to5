@@ -48,7 +48,7 @@
                 <Plaque id="musicians" title="Guest Musicians" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm work-week-page__djs p-4">
-                <ArtistPolaroid v-for="dj in djs" :key="dj.id" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :soundcloud-link="dj.soundcloudLink" />
+                <ArtistPolaroid v-for="(dj, index) in performers.djs" :key="dj.id" :performer-id="index" performer-type="djs" :image-name="dj.imageName" :venmo="dj.venmo" :soundcloud="dj.soundcloud" :soundcloud-link="dj.soundcloudLink" @modal="openModal($event)" />
             </div>
         </div>
         <div class="container mx-auto">
@@ -56,7 +56,7 @@
                 <Plaque id="arts-and-activities" title="Arts & Activities" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 work-week-page__arts-crafts">
-                <ArtistPolaroid v-for="artist in artists" :key="artist.id" :image-name="artist.imageName" :venmo="artist.venmo" :soundcloud="artist.soundcloud" :soundcloud-link="artist.soundcloudLink" :instagram="artist.instagram" :instagram-link="artist.instagramLink" :website="artist.website" />
+                <ArtistPolaroid v-for="(artist, index) in performers.artists" :key="artist.id" :performer-id="index" performer-type="artists" :image-name="artist.imageName" :venmo="artist.venmo" :soundcloud="artist.soundcloud" :soundcloud-link="artist.soundcloudLink" :instagram="artist.instagram" :instagram-link="artist.instagramLink" :website="artist.website" @modal="openModal($event)" />
             </div>
         </div>
         <div class="container mx-auto">
@@ -64,7 +64,20 @@
                 <Plaque id="performers" title="Performers" />
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 work-week-page__performers">
-                <ArtistPolaroid v-for="performer in performers" :key="performer.id" :image-name="performer.imageName" :venmo="performer.venmo" :soundcloud="performer.soundcloud" :soundcloud-link="performer.soundcloudLink" :instagram="performer.instagram" :instagram-link="performer.instagramLink" :website="performer.website" />
+                <ArtistPolaroid
+                    v-for="(performer, index) in performers.performers"
+                    :key="performer.id"
+                    :performer-id="index"
+                    performer-type="performers"
+                    :image-name="performer.imageName"
+                    :venmo="performer.venmo"
+                    :soundcloud="performer.soundcloud"
+                    :soundcloud-link="performer.soundcloudLink"
+                    :instagram="performer.instagram"
+                    :instagram-link="performer.instagramLink"
+                    :website="performer.website"
+                    @modal="openModal($event)"
+                />
             </div>
         </div>
         <!-- <div class="container mx-auto">
@@ -73,10 +86,15 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 work-week-page__themes"></div>
         </div>-->
+        <button :style="{ position: 'absolute', top: '100px', left: 0, zIndex: 1000, background: 'red' }" @click="modalIsOpen = true">Open Modal</button>
+        <transition name="modal-fade">
+            <Modal v-if="modalIsOpen" :data="performers" :starting-type="modalStartingType" :starting-index="modalStartingIndex" @close="modalIsOpen = false" />
+        </transition>
     </div>
 </template>
 
 <script>
+import Modal from '@/components/Modal'
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
 import ArtistPolaroid from '@/components/ArtistPolaroid'
@@ -88,237 +106,254 @@ export default {
         Pinned,
         Plaque,
         ArtistPolaroid,
+        Modal,
     },
     data() {
         return {
             fullSchedule,
-            djs: [
-                {
-                    imageName: 'artists/djs/buku.jpg',
-                    venmo: '@bukudatdude',
-                    soundcloud: '/buku',
-                    soundcloudLink: 'https://soundcloud.com/buku',
-                },
-                {
-                    imageName: 'artists/djs/codes.jpg',
-                    venmo: '@codeshouse',
-                    soundcloud: '/codeshouse',
-                    soundcloudLink: 'https://soundcloud.com/codeshouse',
-                },
-                {
-                    imageName: 'artists/djs/dunks.jpg',
-                    venmo: null,
-                    soundcloud: '/dunks',
-                    soundcloudLink: 'https://soundcloud.com/dunks',
-                },
-                {
-                    imageName: 'artists/djs/golf-clap.jpg',
-                    venmo: null,
-                    soundcloud: '/golfclapdet',
-                    soundcloudLink: 'https://soundcloud.com/golfclapdet',
-                },
-                {
-                    imageName: 'artists/djs/honeycomb.jpg',
-                    venmo: '@honeycombeatbox',
-                    soundcloud: '/honeycomb',
-                    soundcloudLink: 'https://soundcloud.com/honeycomb',
-                },
-                {
-                    imageName: 'artists/djs/saltus.jpg',
-                    venmo: null,
-                    soundcloud: '/saltusmusic',
-                    soundcloudLink: 'https://soundcloud.com/saltusmusic',
-                },
-                {
-                    imageName: 'artists/djs/skiitour.jpg',
-                    venmo: null,
-                    soundcloud: '/skiitour',
-                    soundcloudLink: 'https://soundcloud.com/skiitour',
-                },
-            ],
-            artists: [
-                {
-                    imageName: 'artists/alana-miller.jpg',
-                    venmo: '@Alanamama',
-                    instagram: '@millerthriller',
-                    instagramLink: 'https://www.instagram.com/millerthriller/',
-                },
-                {
-                    imageName: 'artists/bzen-wellness.jpg',
-                    venmo: '@brittany-boersma',
-                    instagram: null,
-                    instagramLink: null,
-                    website: 'bzenwellness.com',
-                },
-                {
-                    imageName: 'artists/caleb-jay.jpg',
-                    venmo: '@calebjay-maltsberger',
-                    instagram: '@calebjay.art',
-                    instagramLink: 'http://www.insatgram.com/calebjay.art',
-                },
-                {
-                    imageName: 'artists/carson-whittaker.jpg',
-                    venmo: '@Carson-Whittaker',
-                    instagram: '@carsons_artlife',
-                    instagramLink: 'https://www.instagram.com/carsons_artlife/',
-                },
-                {
-                    imageName: 'artists/dorienn-medrano.jpg',
-                    venmo: null,
-                    instagram: '@doriennmara',
-                    instagramLink: 'https://www.instagram.com/doriennmara/',
-                    website: 'doriennmedrano.com/',
-                },
-                {
-                    imageName: 'artists/eddy-sato.jpg',
-                    venmo: '@eddy-sato',
-                    instagram: '@youruncleeddy',
-                    instagramLink: 'http://instagram.com/youruncleeddy',
-                },
-                {
-                    imageName: 'artists/lina-alf.jpg',
-                    venmo: '@linaalf',
-                    instagram: '@linaalf',
-                    instagramLink: 'https://www.instagram.com/linaalf/',
-                },
-                {
-                    imageName: 'artists/lisa-leturno.jpg',
-                    venmo: '@artsiren',
-                    instagram: '@leturnoart',
-                    instagramLink: 'https://www.instagram.com/leturnoart/',
-                },
-                {
-                    imageName: 'artists/lizzie-rose.jpg',
-                    venmo: '@lizzierosemedia',
-                    instagram: '@lizzierosemedia',
-                    instagramLink: 'http://instagram.com/lizzierosemedia',
-                },
-                {
-                    imageName: 'artists/lost-and-profound.jpg',
-                    venmo: '@ematthews09',
-                    instagram: '@discotechnics',
-                    instagramLink: 'https://www.instagram.com/discotechnics/',
-                    website: 'etsy.com/shop/LostAndProfoundPNW',
-                },
-                {
-                    imageName: 'artists/melolagnia.jpg',
-                    venmo: '@melolagnia',
-                    instagram: '@melolagnia',
-                    instagramLink: 'https://www.instagram.com/melolagnia',
-                },
-                {
-                    imageName: 'artists/rawb-lane.jpg',
-                    venmo: '@rawb-lane',
-                    instagram: '@rawblane',
-                    instagramLink: 'https://www.instagram.com/rawblane/',
-                },
-                {
-                    imageName: 'artists/ruthie-kallai.jpg',
-                    venmo: '@ruthie8',
-                    instagram: '@ruthiekallai',
-                    instagramLink: 'https://www.instagram.com/ruthiekallai/',
-                    website: 'ruthiekallai.com',
-                },
-            ],
-            performers: [
-                {
-                    imageName: 'artists/performers/christina-demaria.jpg',
-                    venmo: '@demachristina',
-                    instagram: '@demachristina',
-                    instagramLink: 'https://www.instagram.com/demachristina/',
-                },
-                {
-                    imageName: 'artists/performers/city-witch.jpg',
-                    venmo: '@citywitch',
-                    instagram: '@citywitchx',
-                    instagramLink: 'https://www.instagram.com/citywitchx/',
-                },
-                {
-                    imageName: 'artists/performers/gabriela-yanette.jpg',
-                    venmo: '@gabriela.performer',
-                    instagram: '@gygarcia',
-                    instagramLink: 'https://www.instagram.com/gygarcia/',
-                },
-                {
-                    imageName: 'artists/performers/heartbreaker.jpg',
-                    venmo: '@heartbreaker',
-                    instagram: '@heart_break_performer',
-                    instagramLink: 'https://www.instagram.com/heart_break_performer/',
-                },
-                {
-                    imageName: 'artists/performers/hula-rev.jpg',
-                    venmo: '@hularev',
-                    instagram: '@hularev',
-                    instagramLink: 'https://www.instagram.com/hularevf/',
-                },
-                {
-                    imageName: 'artists/performers/jenn-ranalli.jpg',
-                    venmo: '@mitch_cadigan',
-                    instagram: '@jenn_ranalli',
-                    instagramLink: 'https://www.instagram.com/jenn_ranalli/',
-                },
-                {
-                    imageName: 'artists/performers/lydia-booth.jpg',
-                    venmo: '@lyd_viciouz',
-                    instagram: '@lyd_viciouz',
-                    instagramLink: 'https://www.instagram.com/lyd_viciouz/',
-                },
-                {
-                    imageName: 'artists/performers/michelle-santoyo.jpg',
-                    venmo: '@michelle-zurita',
-                    instagram: '@chellune',
-                    instagramLink: 'https://www.instagram.com/chellune/',
-                },
-                {
-                    imageName: 'artists/performers/miss-powers.jpg',
-                    venmo: '@reganpowers0627',
-                    instagram: '@_miss_powers_',
-                    instagramLink: 'https://www.instagram.com/_miss_powers_/',
-                },
-                {
-                    imageName: 'artists/performers/nia-hayes.jpg',
-                    venmo: '@nia-hayes',
-                    instagram: '@niaonfia',
-                    instagramLink: 'https://www.instagram.com/niaonfia/',
-                },
-                {
-                    imageName: 'artists/performers/phoenix-ha.jpg',
-                    venmo: '@phoenix-ha',
-                    instagram: '@phoenix.fireflow',
-                    instagramLink: 'https://www.instagram.com/phoenix.fireflow/',
-                },
-                {
-                    imageName: 'artists/performers/rae-chrysalis.jpg',
-                    venmo: '@rachel-koshiol',
-                    instagram: '@beamingrae_',
-                    instagramLink: 'https://www.instagram.com/beamingrae_/',
-                },
-                {
-                    imageName: 'artists/performers/saturn-superstar.jpg',
-                    venmo: '@Saturn-Reyes',
-                    instagram: '@saturn_superstar',
-                    instagramLink: 'https://www.instagram.com/saturn_superstar/',
-                },
-                {
-                    imageName: 'artists/performers/tae-callahan.jpg',
-                    venmo: '@chaiitae',
-                    instagram: '@taeshantii',
-                    instagramLink: 'https://www.instagram.com/taeshantii/',
-                },
-                {
-                    imageName: 'artists/performers/the-bone-goddess.jpg',
-                    venmo: '@haley-jensen-29',
-                    instagram: '@thebonegoddess',
-                    instagramLink: 'https://www.instagram.com/thebonegoddess/',
-                },
-                {
-                    imageName: 'artists/performers/tracey-wong.jpg',
-                    venmo: '@queenofthehill',
-                    instagram: '@mactrayy',
-                    instagramLink: 'https://www.instagram.com/mactrayy/',
-                },
-            ],
+            modalIsOpen: false,
+            modalStartingIndex: 0,
+            modalStartingType: '',
+            performers: {
+                djs: [
+                    {
+                        imageName: 'artists/djs/buku.jpg',
+                        venmo: '@bukudatdude',
+                        soundcloud: '/buku',
+                        soundcloudLink: 'https://soundcloud.com/buku',
+                    },
+                    {
+                        imageName: 'artists/djs/codes.jpg',
+                        venmo: '@codeshouse',
+                        soundcloud: '/codeshouse',
+                        soundcloudLink: 'https://soundcloud.com/codeshouse',
+                    },
+                    {
+                        imageName: 'artists/djs/dunks.jpg',
+                        venmo: null,
+                        soundcloud: '/dunks',
+                        soundcloudLink: 'https://soundcloud.com/dunks',
+                    },
+                    {
+                        imageName: 'artists/djs/golf-clap.jpg',
+                        venmo: null,
+                        soundcloud: '/golfclapdet',
+                        soundcloudLink: 'https://soundcloud.com/golfclapdet',
+                    },
+                    {
+                        imageName: 'artists/djs/honeycomb.jpg',
+                        venmo: '@honeycombeatbox',
+                        soundcloud: '/honeycomb',
+                        soundcloudLink: 'https://soundcloud.com/honeycomb',
+                    },
+                    {
+                        imageName: 'artists/djs/saltus.jpg',
+                        venmo: null,
+                        soundcloud: '/saltusmusic',
+                        soundcloudLink: 'https://soundcloud.com/saltusmusic',
+                    },
+                    {
+                        imageName: 'artists/djs/skiitour.jpg',
+                        venmo: null,
+                        soundcloud: '/skiitour',
+                        soundcloudLink: 'https://soundcloud.com/skiitour',
+                    },
+                ],
+                artists: [
+                    {
+                        imageName: 'artists/alana-miller.jpg',
+                        venmo: '@Alanamama',
+                        instagram: '@millerthriller',
+                        instagramLink: 'https://www.instagram.com/millerthriller/',
+                    },
+                    {
+                        imageName: 'artists/bzen-wellness.jpg',
+                        venmo: '@brittany-boersma',
+                        instagram: null,
+                        instagramLink: null,
+                        website: 'bzenwellness.com',
+                    },
+                    {
+                        imageName: 'artists/caleb-jay.jpg',
+                        venmo: '@calebjay-maltsberger',
+                        instagram: '@calebjay.art',
+                        instagramLink: 'http://www.insatgram.com/calebjay.art',
+                    },
+                    {
+                        imageName: 'artists/carson-whittaker.jpg',
+                        venmo: '@Carson-Whittaker',
+                        instagram: '@carsons_artlife',
+                        instagramLink: 'https://www.instagram.com/carsons_artlife/',
+                    },
+                    {
+                        imageName: 'artists/dorienn-medrano.jpg',
+                        venmo: null,
+                        instagram: '@doriennmara',
+                        instagramLink: 'https://www.instagram.com/doriennmara/',
+                        website: 'doriennmedrano.com/',
+                    },
+                    {
+                        imageName: 'artists/eddy-sato.jpg',
+                        venmo: '@eddy-sato',
+                        instagram: '@youruncleeddy',
+                        instagramLink: 'http://instagram.com/youruncleeddy',
+                    },
+                    {
+                        imageName: 'artists/lina-alf.jpg',
+                        venmo: '@linaalf',
+                        instagram: '@linaalf',
+                        instagramLink: 'https://www.instagram.com/linaalf/',
+                    },
+                    {
+                        imageName: 'artists/lisa-leturno.jpg',
+                        venmo: '@artsiren',
+                        instagram: '@leturnoart',
+                        instagramLink: 'https://www.instagram.com/leturnoart/',
+                    },
+                    {
+                        imageName: 'artists/lizzie-rose.jpg',
+                        venmo: '@lizzierosemedia',
+                        instagram: '@lizzierosemedia',
+                        instagramLink: 'http://instagram.com/lizzierosemedia',
+                    },
+                    {
+                        imageName: 'artists/lost-and-profound.jpg',
+                        venmo: '@ematthews09',
+                        instagram: '@discotechnics',
+                        instagramLink: 'https://www.instagram.com/discotechnics/',
+                        website: 'etsy.com/shop/LostAndProfoundPNW',
+                    },
+                    {
+                        imageName: 'artists/melolagnia.jpg',
+                        venmo: '@melolagnia',
+                        instagram: '@melolagnia',
+                        instagramLink: 'https://www.instagram.com/melolagnia',
+                    },
+                    {
+                        imageName: 'artists/rawb-lane.jpg',
+                        venmo: '@rawb-lane',
+                        instagram: '@rawblane',
+                        instagramLink: 'https://www.instagram.com/rawblane/',
+                    },
+                    {
+                        imageName: 'artists/ruthie-kallai.jpg',
+                        venmo: '@ruthie8',
+                        instagram: '@ruthiekallai',
+                        instagramLink: 'https://www.instagram.com/ruthiekallai/',
+                        website: 'ruthiekallai.com',
+                    },
+                ],
+                performers: [
+                    {
+                        imageName: 'artists/performers/christina-demaria.jpg',
+                        venmo: '@demachristina',
+                        instagram: '@demachristina',
+                        instagramLink: 'https://www.instagram.com/demachristina/',
+                    },
+                    {
+                        imageName: 'artists/performers/city-witch.jpg',
+                        venmo: '@citywitch',
+                        instagram: '@citywitchx',
+                        instagramLink: 'https://www.instagram.com/citywitchx/',
+                    },
+                    {
+                        imageName: 'artists/performers/gabriela-yanette.jpg',
+                        venmo: '@gabriela.performer',
+                        instagram: '@gygarcia',
+                        instagramLink: 'https://www.instagram.com/gygarcia/',
+                    },
+                    {
+                        imageName: 'artists/performers/heartbreaker.jpg',
+                        venmo: '@heartbreaker',
+                        instagram: '@heart_break_performer',
+                        instagramLink: 'https://www.instagram.com/heart_break_performer/',
+                    },
+                    {
+                        imageName: 'artists/performers/hula-rev.jpg',
+                        venmo: '@hularev',
+                        instagram: '@hularev',
+                        instagramLink: 'https://www.instagram.com/hularevf/',
+                    },
+                    {
+                        imageName: 'artists/performers/jenn-ranalli.jpg',
+                        venmo: '@mitch_cadigan',
+                        instagram: '@jenn_ranalli',
+                        instagramLink: 'https://www.instagram.com/jenn_ranalli/',
+                    },
+                    {
+                        imageName: 'artists/performers/lydia-booth.jpg',
+                        venmo: '@lyd_viciouz',
+                        instagram: '@lyd_viciouz',
+                        instagramLink: 'https://www.instagram.com/lyd_viciouz/',
+                    },
+                    {
+                        imageName: 'artists/performers/michelle-santoyo.jpg',
+                        venmo: '@michelle-zurita',
+                        instagram: '@chellune',
+                        instagramLink: 'https://www.instagram.com/chellune/',
+                    },
+                    {
+                        imageName: 'artists/performers/miss-powers.jpg',
+                        venmo: '@reganpowers0627',
+                        instagram: '@_miss_powers_',
+                        instagramLink: 'https://www.instagram.com/_miss_powers_/',
+                    },
+                    {
+                        imageName: 'artists/performers/nia-hayes.jpg',
+                        venmo: '@nia-hayes',
+                        instagram: '@niaonfia',
+                        instagramLink: 'https://www.instagram.com/niaonfia/',
+                    },
+                    {
+                        imageName: 'artists/performers/phoenix-ha.jpg',
+                        venmo: '@phoenix-ha',
+                        instagram: '@phoenix.fireflow',
+                        instagramLink: 'https://www.instagram.com/phoenix.fireflow/',
+                    },
+                    {
+                        imageName: 'artists/performers/rae-chrysalis.jpg',
+                        venmo: '@rachel-koshiol',
+                        instagram: '@beamingrae_',
+                        instagramLink: 'https://www.instagram.com/beamingrae_/',
+                    },
+                    {
+                        imageName: 'artists/performers/saturn-superstar.jpg',
+                        venmo: '@Saturn-Reyes',
+                        instagram: '@saturn_superstar',
+                        instagramLink: 'https://www.instagram.com/saturn_superstar/',
+                    },
+                    {
+                        imageName: 'artists/performers/tae-callahan.jpg',
+                        venmo: '@chaiitae',
+                        instagram: '@taeshantii',
+                        instagramLink: 'https://www.instagram.com/taeshantii/',
+                    },
+                    {
+                        imageName: 'artists/performers/the-bone-goddess.jpg',
+                        venmo: '@haley-jensen-29',
+                        instagram: '@thebonegoddess',
+                        instagramLink: 'https://www.instagram.com/thebonegoddess/',
+                    },
+                    {
+                        imageName: 'artists/performers/tracey-wong.jpg',
+                        venmo: '@queenofthehill',
+                        instagram: '@mactrayy',
+                        instagramLink: 'https://www.instagram.com/mactrayy/',
+                    },
+                ],
+            },
         }
+    },
+    beforeMount() {
+        this.$store.dispatch('getWorkWeeks')
+    },
+    methods: {
+        openModal(event) {
+            console.log(event)
+            this.modalIsOpen = true
+            this.modalStartingIndex = event.performerId
+            this.modalStartingType = event.performerType
+        },
     },
 }
 </script>

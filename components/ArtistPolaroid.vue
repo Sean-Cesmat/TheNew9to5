@@ -1,5 +1,5 @@
 <template>
-    <div class="polaroid" :style="{ transform: `rotate(${tilt}deg)` }">
+    <div class="polaroid" :style="{ transform: `rotate(${tilt}deg)` }" @click="$emit('modal', { performerId, performerType })">
         <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
             <img :src="getImage(imageName)" />
@@ -36,6 +36,14 @@ export default {
     name: 'Polaroid',
     mixins: [fileLoaders],
     props: {
+        performerId: {
+            type: Number,
+            default: 0,
+        },
+        performerType: {
+            type: String,
+            default: '',
+        },
         imageName: {
             type: String,
             required: true,
