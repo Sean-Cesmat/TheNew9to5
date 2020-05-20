@@ -2,9 +2,9 @@
     <div class="polaroid" :style="{ transform: `rotate(${tilt}deg)` }" @click="$emit('modal', { performerId, performerType })">
         <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
-            <img :src="getImage(imageName)" />
+            <img :src="cardImage ? `http://9to5cockpit.seancesmat.com/${cardImage.path}` : ''" />
             <div class="polaroid__socials">
-                <a v-if="venmo" class="polaroid__venmo" href="#" target="_blank">
+                <!-- <a v-if="venmo" class="polaroid__venmo" href="#" target="_blank">
                     <img src="~/assets/img/venmo.png" />
                     <p>{{ venmo }}</p>
                 </a>
@@ -24,7 +24,7 @@
                 </a>
                 <a v-if="venmo && (soundcloud || instagram) && website" class="polaroid__website" :href="website" target="_blank">
                     <a :href="website" target="_blank">{{ website }}</a>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
 <script>
 import fileLoaders from '@/mixins/fileLoaders'
 export default {
-    name: 'Polaroid',
+    name: 'ArtistPolaroid',
     mixins: [fileLoaders],
     props: {
         performerId: {
@@ -44,8 +44,8 @@ export default {
             type: String,
             default: '',
         },
-        imageName: {
-            type: String,
+        cardImage: {
+            type: Object,
             required: true,
         },
         venmo: {

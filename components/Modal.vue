@@ -49,8 +49,8 @@ export default {
         currentPerformer() {
             const currentData = this.data[this.currentType][this.currentIndex]
             return {
-                imageName: currentData.imageName,
-                venmo: currentData.venmo,
+                imageName: currentData.CardImage,
+                Venmo: currentData.Venmo,
                 soundcloud: currentData.soundcloud,
                 soundcloudLink: currentData.soundcloudLink,
                 instagram: currentData.instagram,
@@ -64,10 +64,10 @@ export default {
         },
         currentTypeHeader() {
             let type = ''
-            if (this.currentType === 'djs') {
+            if (this.currentType === 'musicians') {
                 type = 'Musicians'
             } else if (this.currentType === 'artists') {
-                type = 'Arts & Crafts'
+                type = 'Arts & Activities'
             } else if (this.currentType === 'performers') {
                 type = 'Performers'
             }

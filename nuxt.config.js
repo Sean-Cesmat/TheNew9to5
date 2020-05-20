@@ -66,6 +66,7 @@ export default {
         '@nuxtjs/dotenv',
         '@nuxtjs/style-resources',
         '@nuxtjs/svg-sprite',
+        '@nuxtjs/date-fns',
     ],
     /*
      ** Axios module configuration

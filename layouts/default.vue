@@ -22,12 +22,14 @@ export default {
         MobileNav,
     },
     mixins: [fileLoaders],
+    beforeMount() {
+        this.$store.dispatch('getPerformers')
+    },
     mounted() {
         this.resizeHandler()
         window.addEventListener('resize', this.resizeHandler)
         this.preloadImage(wallPreload)
         this.preloadImage(pinboardPreload)
-        this.$store.dispatch('getPerformers')
     },
     methods: {
         resizeHandler() {

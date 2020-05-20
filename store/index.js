@@ -1,8 +1,8 @@
 export const state = () => ({
     isMobile: false,
     isNavOpen: false,
-    performers: [],
-    workWeeks: [],
+    performers: null,
+    workWeeks: null,
 })
 export const mutations = {
     updateIsMobile(state, bool) {
@@ -26,7 +26,7 @@ export const actions = {
         commit('updateIsNavOpen', payload)
     },
     async getPerformers({ state, commit }) {
-        if (state.performers.length) return
+        if (state.performers !== null) return
         try {
             const performers = await fetch(`http://9to5cockpit.seancesmat.com/api/collections/get/performers`).then((res) => res.json())
             commit('updatePerformers', performers.entries)
@@ -36,7 +36,7 @@ export const actions = {
         }
     },
     async getWorkWeeks({ state, commit }) {
-        if (state.workWeeks.length) return
+        if (state.workWeeks !== null) return
         try {
             const workWeeks = await fetch(`http://9to5cockpit.seancesmat.com/api/collections/get/workWeeks`).then((res) => res.json())
             commit('updateWorkWeeks', workWeeks.entries)
