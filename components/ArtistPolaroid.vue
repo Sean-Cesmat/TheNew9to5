@@ -2,29 +2,29 @@
     <div class="polaroid" :style="{ transform: `rotate(${tilt}deg)` }" @click="$emit('modal', { performerId, performerType })">
         <img src="~/assets/img/thumbtack.png" class="polaroid__hanger" />
         <div class="polaroid__img">
-            <img :src="cardImage ? `http://9to5cockpit.seancesmat.com/${cardImage.path}` : ''" />
+            <img :src="cardData.CardImage ? `http://9to5cockpit.seancesmat.com/${cardData.CardImage.path}` : ''" />
             <div class="polaroid__socials">
-                <!-- <a v-if="venmo" class="polaroid__venmo" href="#" target="_blank">
+                <a v-if="cardData.Venmo" class="polaroid__venmo" target="_blank">
                     <img src="~/assets/img/venmo.png" />
-                    <p>{{ venmo }}</p>
+                    <p>{{ `@${cardData.Venmo}` }}</p>
                 </a>
-                <a v-else-if="!venmo && website" class="polaroid__website" :href="website" target="_blank">
-                    <a :href="website" target="_blank">{{ website }}</a>
+                <a v-else-if="!cardData.Venmo && cardData.Website" class="polaroid__website" :href="cardData.Website" target="_blank">
+                    <a :href="cardData.Website" target="_blank">{{ cardData.Website }}</a>
                 </a>
-                <a v-if="soundcloud" class="polaroid__soundcloud" :href="soundcloudLink" target="_blank">
+                <a v-if="cardData.Soundcloud" class="polaroid__soundcloud" :href="`https://soundcloud.com${cardData.Soundcloud}`" target="_blank">
                     <img src="~/assets/img/soundcloud.svg" />
-                    <p>{{ soundcloud }}</p>
+                    <p>{{ cardData.Soundcloud }}</p>
                 </a>
-                <a v-if="instagram" class="polaroid__instagram" :href="instagramLink" target="_blank">
+                <a v-if="cardData.Instagram" class="polaroid__instagram" :href="`http://www.insatgram.com/${cardData.Instagram}`" target="_blank">
                     <img src="~/assets/img/instagram.svg" />
-                    <p>{{ instagram }}</p>
+                    <p>{{ `@${cardData.Instagram}` }}</p>
                 </a>
-                <a v-else-if="!instagram && website" class="polaroid__website" :href="website" target="_blank">
-                    <a :href="website" target="_blank">{{ website }}</a>
+                <a v-else-if="!cardData.Instagram && cardData.Website" class="polaroid__website" :href="cardData.Website" target="_blank">
+                    <a :href="cardData.Website" target="_blank">{{ cardData.Website }}</a>
                 </a>
-                <a v-if="venmo && (soundcloud || instagram) && website" class="polaroid__website" :href="website" target="_blank">
-                    <a :href="website" target="_blank">{{ website }}</a>
-                </a> -->
+                <a v-if="cardData.Venmo && (cardData.Soundcloud || cardData.Instagram) && cardData.Website" class="polaroid__website" :href="cardData.Website" target="_blank">
+                    <a :href="cardData.Website" target="_blank">{{ cardData.Website }}</a>
+                </a>
             </div>
         </div>
     </div>
@@ -44,37 +44,9 @@ export default {
             type: String,
             default: '',
         },
-        cardImage: {
+        cardData: {
             type: Object,
             required: true,
-        },
-        venmo: {
-            type: String,
-            default: null,
-        },
-        paypal: {
-            type: String,
-            default: null,
-        },
-        soundcloud: {
-            type: String,
-            default: null,
-        },
-        soundcloudLink: {
-            type: String,
-            default: null,
-        },
-        instagram: {
-            type: String,
-            default: null,
-        },
-        instagramLink: {
-            type: String,
-            default: null,
-        },
-        website: {
-            type: String,
-            default: null,
         },
     },
     data() {

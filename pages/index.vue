@@ -8,7 +8,7 @@
                 </h1>
                 <h3>your source for weekly tunes, crafts, and shenanigans</h3>
                 <div class="home-page__content-event">
-                    <h2>April 20-24 | 40 Hour Work Week</h2>
+                    <h2>40 Hour Work Weeks</h2>
                     <div class="w-full">
                         <h3>A weeklong celebration of art in its many forms, including:</h3>
                         <img src="~/assets/img/work-week-stickys-wide.svg" class="home-page__stickys" />

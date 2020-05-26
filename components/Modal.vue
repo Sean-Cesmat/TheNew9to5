@@ -1,18 +1,18 @@
 <template>
     <div class="modal" @keyup.left="back" @keyup.right="next" @click.self="$emit('close')">
         <svg-icon name="close--colorless" class="modal__close-btn" @click="$emit('close')" />
-        <h1 class="modal__title">{{ this.currentTypeHeader }}</h1>
+        <h1 class="modal__title">{{ currentTypeHeader }}</h1>
         <div class="modal__inner">
             <button class="modal__back-btn" @click="back">BACK</button>
             <div class="modal__content">
-                <img :src="getImage(currentPerformer.imageName)" />
-                <p>{{ currentPerformer.venmo }}</p>
+                <img :src="currentPerformer.CardImage ? `http://9to5cockpit.seancesmat.com/${currentPerformer.CardImage}` : ''" />
+                <!-- <p>{{ currentPerformer.venmo }}</p>
                 <p>{{ currentPerformer.soundcloud }}</p>
                 <p>{{ currentPerformer.soundcloudLink }}</p>
                 <p>{{ currentPerformer.instagram }}</p>
                 <p>{{ currentPerformer.instagramLink }}</p>
                 <p>{{ currentPerformer.website }}</p>
-                <p>{{ currentPerformer.bio }}</p>
+                <p>{{ currentPerformer.bio }}</p>-->
             </div>
             <button class="modal__next-btn" @click="next">NEXT</button>
         </div>
@@ -47,20 +47,18 @@ export default {
     },
     computed: {
         currentPerformer() {
-            const currentData = this.data[this.currentType][this.currentIndex]
+            const currentData = this.data ? this.data[this.currentType][this.currentIndex] : null
             return {
-                imageName: currentData.CardImage,
-                Venmo: currentData.Venmo,
-                soundcloud: currentData.soundcloud,
-                soundcloudLink: currentData.soundcloudLink,
-                instagram: currentData.instagram,
-                instagramLink: currentData.instagramLink,
-                website: currentData.website,
-                bio: currentData.bio,
+                CardImage: currentData.CardImage ? currentData.CardImage.path : null,
+                Venmo: currentData.Venmo ? currentData.Venmo : null,
+                Soundcloud: currentData.Soundcloud ? currentData.Soundcloud : null,
+                Instagram: currentData.Instagram ? currentData.Instagram : null,
+                Website: currentData.Website ? currentData.Website : null,
+                Bio: currentData.Bio ? currentData.Bio : null,
             }
         },
         types() {
-            return Object.keys(this.data)
+            return Object.keys(this.computedData)
         },
         currentTypeHeader() {
             let type = ''
@@ -72,6 +70,15 @@ export default {
                 type = 'Performers'
             }
             return type
+        },
+        computedData() {
+            const newData = {}
+            Object.keys(this.data).forEach((key) => {
+                if (this.data[key].length !== 0) {
+                    newData[key] = this.data[key]
+                }
+            })
+            return newData
         },
     },
     beforeMount() {
