@@ -8,7 +8,7 @@
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 work-week-page__intro">
                 <Pinned :tilt="-0.2" paper-color="var(--yellow)" class="work-week-page__intro-pinned">
-                    <p><span>Dates:</span> April 20-24, 9am-5pm PDT</p>
+                    <p><span>Dates:</span> May 25-29, 9am-5pm PDT</p>
                     <p><span>Location:</span> twitch.tv/subsetgetsit</p>
                     <p><span>Hosted by:</span> Subset & The Instigators</p>
                 </Pinned>
@@ -18,11 +18,11 @@
                         <span>Daily Themes</span>
                     </p>
                     <p class="work-week-page__intro-themes-spacer"></p>
-                    <p><span>Mon -</span> Spa Day</p>
-                    <p><span>Tue -</span> Flower Power</p>
-                    <p><span>Wed -</span> Weirdos Unite</p>
-                    <p><span>Thu -</span> Holiday Party</p>
-                    <p><span>Fri -</span> Old Skool Rave</p>
+                    <p><span>Mon -</span> Plamp It Up</p>
+                    <p><span>Tue -</span> Colorblock</p>
+                    <p><span>Wed -</span> Homecoming</p>
+                    <p><span>Thu -</span> Throwback Thursday</p>
+                    <p><span>Fri -</span> Club Kids</p>
                     <p class="work-week-page__intro-themes-spacer"></p>
                 </Pinned>
             </div>
@@ -34,16 +34,20 @@
             <div class="flex justify-center work-week-page__schedule">
                 <Pinned :tilt="0.3" class="work-week-page__schedule-pinned">
                     <div class="work-week-page__schedule-img-cont">
-                        <img src="~/assets/img/40hww-schedule.jpg" />
+                        <img src="~/assets/img/display-schedule_5-25.jpg" />
                     </div>
                     <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6S6-_yUnP6vndrRfnReOslcCYTt3orld8lWyzXbhwCInJ_W9DI6-UMraNa8id_a5nCaZUe6UxhQSl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
                     <div class="flex justify-center">
-                        <a :href="fullSchedule" download="40hrWorkWeekSchedule.jpg" class="work-week-page__schedule-download">Download Schedule</a>
+                        <a :href="fullSchedule" target="_blank" class="work-week-page__schedule-download">Download Schedule</a>
+                    </div>
+                    <div class="flex justify-center">
+                        <a :href="zoomRoomSchedule" target="_blank" class="work-week-page__schedule-download">Download Zoom Workshops Schedule</a>
                     </div>
                 </Pinned>
             </div>
         </div>
-        <div class="container mx-auto">
+
+        <!-- <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="musicians" title="Guest Musicians" />
             </div>
@@ -66,7 +70,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 work-week-page__performers">
                 <ArtistPolaroid v-for="performer in performers" :key="performer.id" :image-name="performer.imageName" :venmo="performer.venmo" :soundcloud="performer.soundcloud" :soundcloud-link="performer.soundcloudLink" :instagram="performer.instagram" :instagram-link="performer.instagramLink" :website="performer.website" />
             </div>
-        </div>
+        </div> -->
         <!-- <div class="container mx-auto">
             <div class="flex justify-center">
                 <Plaque id="themes" title="Themes" />
@@ -79,19 +83,21 @@
 <script>
 import Pinned from '@/components/Pinned'
 import Plaque from '@/components/Plaque'
-import ArtistPolaroid from '@/components/ArtistPolaroid'
-import fullSchedule from '@/assets/img/40hrWorkWeek.jpg'
+// import ArtistPolaroid from '@/components/ArtistPolaroid'
+import fullSchedule from '@/assets/img/40hwwSchedule_5-25.pdf'
+import zoomRoomSchedule from '@/assets/img/ZoomInteractiveWorkshopSchedule_5-25.pdf'
 
 export default {
     name: 'FourtyHWW',
     components: {
         Pinned,
         Plaque,
-        ArtistPolaroid,
+        // ArtistPolaroid,
     },
     data() {
         return {
             fullSchedule,
+            zoomRoomSchedule,
             djs: [
                 {
                     imageName: 'artists/djs/buku.jpg',

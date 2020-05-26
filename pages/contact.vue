@@ -21,7 +21,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .contact {
-    background: #f5d343;
+    background: #ffd542;
     min-height: calc(100vh - var(--nav-height));
     padding: 0px 20px;
     @include breakpoint-down(sm) {

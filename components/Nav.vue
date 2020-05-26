@@ -7,9 +7,9 @@
                 </div>
                 <div class="w-2/3 flex items-center justify-end nav__desktop">
                     <nuxt-link to="/">Home</nuxt-link>
-                    <Dropdown>
-                        <nuxt-link to="/40hww">40h Work Week</nuxt-link>
-                    </Dropdown>
+                    <!-- <Dropdown> -->
+                    <nuxt-link to="/40hww">40h Work Week</nuxt-link>
+                    <!-- </Dropdown> -->
                     <nuxt-link to="/email-list">Email List</nuxt-link>
                     <nuxt-link to="/about">About</nuxt-link>
                     <nuxt-link to="/contact">Contact</nuxt-link>
@@ -29,11 +29,11 @@
     </div>
 </template>
 <script>
-import Dropdown from '@/components/Dropdown'
+// import Dropdown from '@/components/Dropdown'
 export default {
     name: 'Nav',
     components: {
-        Dropdown,
+        // Dropdown,
     },
 }
 </script>
