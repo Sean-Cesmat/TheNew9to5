@@ -44,8 +44,14 @@ export default {
         text-align: center;
         width: 565px;
         margin: 0 auto;
+        @include breakpoint-up(xxxl) {
+            width: 680px;
+        }
         @include breakpoint-down(lg) {
             width: 375px;
+        }
+        @media screen and (min-width: 2500px) {
+            width: 800px;
         }
     }
 }
