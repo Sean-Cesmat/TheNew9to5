@@ -32,7 +32,7 @@ export const actions = {
     async getPerformers({ state, commit }) {
         if (state.performers !== null) return
         try {
-            const performers = await fetch(`http://9to5cockpit.seancesmat.com/api/collections/get/performers`).then((res) => res.json())
+            const performers = await fetch(`https://9to5cockpit.seancesmat.com/api/collections/get/performers`).then((res) => res.json())
             commit('updatePerformers', performers.entries)
         } catch (err) {
             // eslint-disable-next-line
@@ -42,7 +42,7 @@ export const actions = {
     async getWorkWeeks({ state, commit }) {
         if (state.workWeeks !== null) return
         try {
-            let workWeeks = await fetch(`http://9to5cockpit.seancesmat.com/api/collections/get/workWeeks`).then((res) => res.json())
+            let workWeeks = await fetch(`https://9to5cockpit.seancesmat.com/api/collections/get/workWeeks`).then((res) => res.json())
             workWeeks = workWeeks.entries.filter((el) => el.Published === true)
             commit('updateWorkWeeks', workWeeks)
         } catch (err) {
@@ -53,7 +53,7 @@ export const actions = {
     async getAboutPage({ state, commit }) {
         if (state.aboutPage !== null) return
         try {
-            const aboutPage = await fetch(`http://9to5cockpit.seancesmat.com/api/singletons/get/AboutPage`).then((res) => res.json())
+            const aboutPage = await fetch(`https://9to5cockpit.seancesmat.com/api/singletons/get/AboutPage`).then((res) => res.json())
             commit('updateAboutPage', aboutPage)
         } catch (err) {
             // eslint-disable-next-line
