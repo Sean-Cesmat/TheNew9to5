@@ -2,7 +2,7 @@
     <div class="twitch">
         <div class="twitch__inner">
             <img src="~/assets/img/meeting-room-wide.jpg" />
-            <iframe src="https://player.twitch.tv/?channel=subsetgetsit" :style="{ position: 'absolute', top: iFrameLocation.y + '%', left: iFrameLocation.x + '%', width: iFrameLocation.w + '%', height: iFrameLocation.h + '%' }" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+            <iframe :src="iframeSource" :style="{ position: 'absolute', top: iFrameLocation.y + '%', left: iFrameLocation.x + '%', width: iFrameLocation.w + '%', height: iFrameLocation.h + '%' }" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
             <slot></slot>
         </div>
     </div>
@@ -17,7 +17,11 @@ export default {
                 w: 22.441314554, // (717 / 3195) * 100
                 h: 16.8739635158, // (407 / 2412) * 100
             },
+            iframeSource: `https://player.twitch.tv/?channel=subsetgetsit`,
         }
+    },
+    beforeMount() {
+        this.iframeSource = `https://player.twitch.tv/?channel=subsetgetsit&parent=${window.location.host}`
     },
 }
 </script>
