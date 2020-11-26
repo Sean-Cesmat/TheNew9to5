@@ -153,9 +153,11 @@ export default {
     }
 
     &__content {
-        background: #fff;
+        // background: #fff;
         width: 760px;
         max-width: 95%;
+        display: flex;
+        justify-content: center;
     }
 
     button {
